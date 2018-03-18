@@ -1,0 +1,15 @@
+page-signup {
+    .item-label-floating .input-wrapper{
+        border-bottom: 2px solid;
+    }
+    .logo{
+        margin: 15% 0 5% 0;
+    }
+    ion-item.item{
+        background-color:transparent;
+    }
+    .item-inner, ion-label.label, i{
+        color: #fff !important;
+        font-weight: bold;
+    } 
+}

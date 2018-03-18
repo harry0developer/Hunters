@@ -1,0 +1,128 @@
+[
+   
+   
+
+    {
+        "name": "Builder",
+        "skills": [
+            "Building",
+            "Measuring",
+            "Cuting",
+            "Mixing"
+        ]
+    },
+    {
+        "name": "Carpenter",
+        "skills": [
+            "Cuting",
+            "Measuring",
+            "Designing",
+            "Painting"
+        ]
+    },
+    {
+        "name": "Cleaner",
+        "skills": [
+            "Cleaning",
+            "Cooking",
+            "Washing",
+            "Ironing"
+        ]
+    },
+    {
+        "name": "Driver",
+        "skills": [
+            "Bike",
+            "Code 10",
+            "Code 14",
+            "PDP"
+        ]
+    },
+    {
+        "name": "Electrician",
+        "skills": [
+            "Cabling",
+            "Measuring",
+            "Cutting",
+            "Testing"
+        ]
+    },
+    {
+        "name": "Gardener",
+        "skills": [
+            "Cleaning",
+            "Grass cutting",
+            "Tree pruning",
+            "Planting",
+            "Florest",
+            "Pool cleaning"
+        ]
+    },
+    {
+        "name": "Mechanic",
+        "skills": [
+            "Maintenance",
+            "Fitting",
+            "Cars",
+            "Trucks",
+            "Change wheel",
+            "Re-spraying"
+        ]
+    },
+    {
+        "name": "Nanny",
+        "skills": [
+            "Cleaning",
+            "Baby care",
+            "Cooking",
+            "Washing"
+        ]
+    },
+    {
+        "name": "Painter",
+        "skills": [
+            "Painting",
+            "Spraying",
+            "Mixing",
+            "Drawing"
+        ]
+    },
+    {
+        "name": "Plumber",
+        "skills": [
+            "Pipes",
+            "Installations",
+            "Maintenance",
+            "Blockage"
+
+        ]
+    },
+    {
+        "name": "Security Guard",
+        "skills": [ 
+            "Firearm",
+            "guarding",
+            "body-guard" 
+        ]
+    },
+    {
+        "name": "Tiler",
+        "skills": [
+            "Tiling",
+            "Measuring",
+            "Cutting"
+        ]
+    },
+    {
+        "name": "Welder",
+        "skills": [
+            "Welding",
+            "Cutting"
+        ]
+    },
+    {
+        "name": "Other",
+        "skills": []
+    }
+    
+]

@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar color="dark"> 
+    <ion-title *ngIf="job">{{job.title}}</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="stats" color="light">
+        <ion-segment-button value="views">
+          Viewed
+        </ion-segment-button>
+        <ion-segment-button value="applied">
+          Applied
+        </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>  
+  <div [ngSwitch]="stats">
+    <div *ngIf="job">
+      <ion-list *ngSwitchCase="'views'" >
+        <ion-item *ngFor="let user of job.viewedUsers" >
+          <ion-avatar item-start>
+            <img src="http://placehold.it/200x200">
+          </ion-avatar>
+          <h2 *ngIf="user">{{user.firstname}} {{user.lastname}}</h2>
+          <p *ngIf="user">{{user.gender}}</p>
+        </ion-item>
+        <ion-item text-wrap *ngIf="job && job.viewedUsers.length < 1">
+          No user viewed this job yet
+        </ion-item>
+      </ion-list> 
+
+      <ion-list *ngSwitchCase="'applied'" >
+        <ion-item *ngFor="let user of job.appliedUsers" >
+          <ion-avatar item-start>
+            <img src="http://placehold.it/200x200">
+          </ion-avatar>
+          <h2 *ngIf="user">{{user.firstname}} {{user.lastname}}</h2>
+          <p *ngIf="user">{{user.gender}}</p>
+        </ion-item>
+        <ion-item text-wrap *ngIf="job && job.appliedUsers.length < 1">
+          No user has applied for this job yet
+        </ion-item>
+      </ion-list>  
+    </div>
+  </div>
+</ion-content>
+
+<!-- 
+<ion-content padding> 
+  <ion-list *ngIf="job && job.viewedUsers">
+      <h2>Users viewed jobs</h2>
+    <ion-item *ngFor="let user of job.viewedUsers" tappable >
+      <ion-avatar item-start>
+        <img src="http://placehold.it/200x200">
+      </ion-avatar>
+      <h2 *ngIf="user">{{user.firstname}} {{user.lastname}}</h2>
+      <p *ngIf="user">{{user.gender}}</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list> 
+  <ion-list *ngIf="job && job.appliedUsers">
+    <h2>Applied users</h2>
+    <ion-item *ngFor="let user of job.appliedUsers" tappable >
+      <ion-avatar item-start>
+        <img src="http://placehold.it/200x200">
+      </ion-avatar>
+      <h2 *ngIf="user">{{user.firstname}} {{user.lastname}}</h2>
+      <p *ngIf="user">{{user.gender}}</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list> 
+</ion-content>
+     -->

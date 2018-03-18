@@ -1,0 +1,54 @@
+ 
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>User Type</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="sub_header">
+        <ion-item-divider>
+          <h2>Who would like to register as?</h2>
+        </ion-item-divider>
+      </ion-col>
+      <ion-col class="side"  col-6>
+        <ion-card [ngClass]="employer?'dull':'life'">
+          <i class="fa fa-user" item-start></i>
+          <ion-item-divider color="dark">
+            <button ion-button color="dark" (click)="pick('employee')" >Candidate</button>
+          </ion-item-divider>
+        </ion-card> 
+      </ion-col> 
+      <ion-col class="side"  col-6>
+        <ion-card [ngClass]="employee?'dull':'life'">
+          <i class="fa fa-briefcase" item-start></i>
+          <ion-item-divider color="dark">
+            <button ion-button color="dark" (click)="pick('employer')" >Recruiter</button>
+          </ion-item-divider>
+        </ion-card> 
+      </ion-col> 
+    </ion-row>
+  </ion-grid>
+
+  <ion-item no-lines *ngIf="employee" text-wrap>
+    <i class="fa fa-2x fa-exclamation-triangle" item-start></i>
+    Candidate is someone here looking for a job and ready to get hired.
+  </ion-item>
+
+  <ion-item no-lines *ngIf="employer" text-wrap>
+    <i class="fa fa-2x fa-exclamation-triangle" item-start></i>
+    Recruiter is someone here looking to employ/hire whoever is providing required service(s).
+  </ion-item>
+
+  <ion-footer>
+    <button ion-button block  icon-end [hidden]="!employer && !employee" color="dark" (click)="continue()">Continue as {{employee ? 'Candidate' : 'Recruiter'}}
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </ion-footer>
+</ion-content>

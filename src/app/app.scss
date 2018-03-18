@@ -14,3 +14,89 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+ 
+.profile{
+    border: 4px solid #fff;
+    border-radius: 100%;
+    width: 120px;
+    margin: 50px 60px 0 60px;
+}
+ 
+.con{
+    background-color: rgba(36, 36, 36, 0.99);
+    text-align: center;
+}
+
+.con p, .con h2{
+    color: #fff;
+    margin: 5px !important;
+    padding: 0 !important;
+}
+
+.con p{
+    font-size: 1.1em;
+    margin-bottom: 30px !important;
+}
+.con h2{
+    font-size: 1.4em;
+}
+
+.con ion-item.item{
+    background: none;
+    color: #fff;
+    font-size: 1.4em;
+}
+
+.extras{
+    position: absolute;
+    bottom: 10px;
+}
+
+@font-face{
+    font-family: SansCaption;
+    src: url('../assets/fonts/SansCaption.woff2') format('woff2');
+}
+
+*{
+    font-family: SansCaption;
+}
+ 
+ion-content.content{
+    background-color: #009688;
+}
+ 
+
+h2{
+    font-size: 1.2em !important;
+}
+
+.toolbar-background{
+    background-color: #009688 !important;
+    color: #fff !important;
+}
+
+
+//  .alert-wrapper{
+//     background-color: #E8B911 !important;
+// }
+
+ 
+// ion-item.item.item-input, ion-item.item.item-select, ion-item.item.item-datetime{
+//     background-color:transparent;
+ 
+// }
+
+// ion-label.label{
+//     color: #fff !important;
+// }
+
+// .btn button{
+//     color: #fff !important;
+// }
+ 
+// .original .toolbar-background {
+//     background-color: #E8B911 !important;
+//     color: #fff !important
+// }
+ 

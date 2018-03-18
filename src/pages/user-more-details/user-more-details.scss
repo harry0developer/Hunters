@@ -1,0 +1,103 @@
+page-user-more-details {
+    $primary_color: #009688;
+    .content{
+        background-color: #fff;
+    }
+    // .info, .info i{
+    //     color: $primary_color;
+    // }
+    .info ion-item{ 
+        background-color:$primary_color;
+        color: #fff;
+        margin: 2px 0;
+    }
+    .skills ion-item{
+        margin: 0;
+    }
+    .info .col{
+        margin-right: 2px;
+        background-color:#93c1bb;
+    }
+    .info ion-label p {
+        color: #f4f4f4;
+        font-size: 1.2em;
+    }
+    .profile{
+        text-align: center;
+        padding: 10%
+    }
+   .profile img{
+        width: 100px;
+        height: 100px;
+        border: 2px solid #000;
+        border-radius: 100%;
+        margin: 20px 0;
+   }
+//    .profile h2{
+//        margin: 2px 0;
+//    }
+
+//    .profile p{
+//        margin: 2px 0;
+//    }
+
+   .top_icon{
+       text-align: center;
+       font-size: 2.3em;
+       padding: 30px 0 40px 0;
+       color: $primary_color;
+   }
+
+   ion-grid.grid{
+       padding: 0;
+   }
+
+   ion-item-divider.item{
+       margin-top: 10px;
+       color: #fff;
+       background-color:$primary_color;
+   }
+
+   ion-item.item{ 
+       background-color:#93c1bb;
+   }
+  
+   ion-item.item p, ion-item.item i{
+       color: #fff;
+       font-size: 1.2em;
+   }
+  
+   ion-item-divider span{
+       color: #fff;
+   }
+
+   .edu{
+       margin: 0 10px !important;
+   }
+
+   .col{
+       padding: 0 !important
+   }
+
+   .item-inner{
+       margin-left: 5px !important;
+   }
+   ion-icon[item-start]{
+       margin: 0 !important;
+       font-size: 1em;
+       padding-top: 5px;
+   }
+ 
+
+   .roles{
+       margin-left: 20px;
+   }
+   .roles i{
+       margin: 5px 0 !important;
+       font-size: 0.8em;
+   }
+
+   .social ion-grid ion-row{
+       background-color: #fff;
+   }
+}

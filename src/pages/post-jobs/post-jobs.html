@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Post Job</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        Cancel
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-grid class="personal-details">
+      <ion-row class="details_row">
+        <ion-col col-12>
+          <ion-item>
+            <ion-label floating><i class="fa fa-archive" item-start></i>Job name</ion-label>
+            <ion-input [(ngModel)]="data.title" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-12>
+          <ion-item>
+            <ion-label floating><i class="fa fa-folder" item-start></i>Category</ion-label>
+            <ion-select (ionChange)="selectedCategory(data.category)" [(ngModel)]="data.category" multiple="false">
+              <ion-option *ngFor="let category of categories; let i = index">{{category.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col col-12 *ngIf="data.category">
+          <ion-item>
+            <ion-label floating><i class="fa fa-folder" item-start></i>Skills</ion-label>
+            <ion-select   [(ngModel)]="data.skills" multiple="true">
+              <ion-option *ngFor="let skill of skills">{{skill}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating><i class="fa fa-pie-chart" item-start></i>Job Type</ion-label>
+            <ion-select [(ngModel)]="data.type" multiple="false">
+              <ion-option>Full time</ion-option>
+              <ion-option>Part time</ion-option>
+              <ion-option>Once off</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating><i class="fa fa-star" item-start></i>Experience</ion-label>
+            <ion-select [(ngModel)]="data.experience" multiple="false">
+              <ion-option>0-1 Year</ion-option>
+              <ion-option>1-2 Years</ion-option>
+              <ion-option>2-5 Years</ion-option>
+              <ion-option>5+ Years</ion-option> 
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating><i class="fa fa-money" item-start></i>Salary (R)</ion-label>
+            <ion-input [(ngModel)]="data.salary" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class="frequency">
+            <ion-label floating><i class="fa fa-clock" item-start></i>Frequency</ion-label>
+            <ion-select [(ngModel)]="data.frequency" multiple="false">
+              <ion-option>Per day</ion-option>
+              <ion-option>Per week</ion-option>
+              <ion-option>Per month</ion-option>
+              <ion-option>Once off</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row> 
+      <ion-row class="details_row">
+        <ion-col col-12>
+          
+          <ion-list>
+            <!-- <button ion-button block color="light" (click)="showAddressModal()">Pick location</button> -->
+            <ion-item tappable >
+              <ion-label floating><i class="fa fa-map-marker" item-start></i>Pick Job Address</ion-label>
+              <ion-input (focus)="showAddressModal()" [(ngModel)]="data.address" type="text"></ion-input>
+            </ion-item>
+          </ion-list> 
+        </ion-col>
+
+        <ion-item>
+          <ion-label floating><i class="fa fa-edit" item-start></i>Job Description</ion-label>
+          <ion-textarea [(ngModel)]="data.description" autocorrect="on" autocomplete="on" rows="3"></ion-textarea>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+      <button ion-button block color="dark" (click)="postJob()"> Post Job </button>
+  </ion-list>
+    
+</ion-content>

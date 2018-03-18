@@ -1,0 +1,16 @@
+page-filter {
+    .scroll-content{
+        background-color: #fff;
+    }
+
+    ion-grid{
+        text-align: center;
+    }
+    ion-grid .col{
+        border: 2px solid #009688;
+        padding: 20px;
+    }
+    ion-grid img{
+        width: 50px;
+    }
+}

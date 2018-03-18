@@ -1,18 +1,100 @@
-<ion-header>
-  <ion-navbar>
+<ion-header >
+  <ion-navbar >
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title *ngIf="profile && profile.type == 'Employee'">Jobs</ion-title>
+    <ion-title *ngIf="profile && profile.type == 'Employer'">Users</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentFilterModal()">
+        <ion-icon name="more"></ion-icon>
+      </button> 
+    </ion-buttons> 
   </ion-navbar>
+  <div *ngIf="profile && profile.type == 'Employee'">
+    <ion-toolbar color="dark">
+      <ion-searchbar [(ngModel)]="searchTerm" placeholder="Search jobs..." [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+      <div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+      </div>
+    </ion-toolbar>
+  </div>
+
+  <div *ngIf="profile && profile.type == 'Employer' ">
+    <ion-toolbar color="dark">
+      <ion-searchbar [(ngModel)]="searchTerm" placeholder="Search users..." [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+      <div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+      </div>
+    </ion-toolbar>
+  </div>
+
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+<ion-content>
+    <div *ngIf="profile && profile.type == 'Employee'">
+      <div class="job" *ngFor="let job of jobs">
+        <ion-list *ngIf="job" (click)="jobDetails(job)">
+          <ion-item class="main">
+            <ion-thumbnail item-start>
+              <!-- <img src="assets/pipes.svg"> -->
+            </ion-thumbnail>
+            <h2>{{job.title}}</h2>
+            <p>
+              <i class="fa fa-map-marker-alt" item-start></i>
+              {{job.address}}
+            </p>
+            <p text-wrap>
+              <i class="fa fa-briefcase" item-start></i>
+              {{job.type}}
+            </p>
+            <p text-wrap>
+              <i class="fa fa-money-bill-alt" item-start></i>
+              {{job.salary == 'Neg' ? "Negotiable" : "R"+ job.salary}} 
+            </p>
+          </ion-item>
+        </ion-list> 
+        <ion-list-header color="light">
+          <div class="left" item-start>
+            <!-- <button ion-button clear icon-left (click)="like(job)">
+              <i class="fa fa-heart" item-start></i>Like
+            </button> -->
+            
+            <button ion-button clear icon-left (click)="share(job)">
+              <i class="fa fa-share" item-start></i>Share
+            </button>
+          </div>
+          <div item-end class="right">
+            <i class="fa fa-calendar" item-start></i>
+            {{getMoment(job)}}
+          </div> 
+        </ion-list-header>
+      </div>
+    </div>
+  
+    <ion-list padding *ngIf="profile && profile.type === 'Employer'">
+      <ion-item class="user" *ngFor="let user of users" (click)="userDetails(user)">
+          <ion-avatar item-start>
+            <img src="http://placehold.it/100x100">
+          </ion-avatar>
+          <h2>{{user.firstname}} {{user.lastname}}</h2>
+          <p>
+            <i class="fa fa-briefcase" item-start></i>
+            {{user.title}}
+          </p>
+          <p>
+            <i class="fa fa-venus-mars" item-start></i>
+            {{user.gender}}
+          </p> 
+          <div class="rating" item-end>
+            <p *ngIf="user.rating == 1">&#9733;&#9734;&#9734;&#9734;&#9734;</p>
+            <p *ngIf="user.rating == 2">&#9733;&#9733;&#9734;&#9734;&#9734;</p>
+            <p *ngIf="user.rating == 3">&#9733;&#9733;&#9733;&#9734;&#9734;</p>
+            <p *ngIf="user.rating == 4">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+            <p *ngIf="user.rating == 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p> 
+          </div>
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>

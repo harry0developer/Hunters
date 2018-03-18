@@ -1,0 +1,22 @@
+page-login {
+
+    .logo{
+        margin: 20% 0 10% 0;
+    }
+    .item-label-floating .input-wrapper{
+        border-bottom: 2px solid;
+    }
+    ion-item.item{
+        background-color: transparent;
+    }
+    .item-inner, ion-label.label, i{
+        color: #fff !important;
+        font-weight: bold;
+    } 
+
+    .button{
+        color: #fff;
+    }
+ 
+
+}

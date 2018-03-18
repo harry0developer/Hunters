@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Job Details
+    </ion-title>
+    <ion-buttons *ngIf="job" end>
+      <button ion-button icon-left (click)="shareJobActionSheet(job)"><ion-icon name="share-alt"></ion-icon>Share</button>
+    </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="banner" *ngIf="job">
+    <!-- <i class="fa fa-4x fa-briefcase" ></i>   -->
+    <img src="assets/categories/{{job.category}}.svg">
+    <h2>{{ job.title }}</h2>
+    <p>{{ job.type }} | {{job.salary == 'Neg' ? "Negotiable" : "R"+job.salary}}</p>
+    <ion-grid class="info">
+      <ion-row>
+        <ion-col col-4>
+          <h2>{{countShared}}</h2>
+          <p>Shares</p> 
+        </ion-col>
+        <ion-col col-4>
+          <h2>{{countViews}}</h2>
+          <p>Views</p> 
+        </ion-col>
+        <ion-col col-4>
+          <h2>{{countApplied}}</h2>
+          <p>Applied</p> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <ion-list *ngIf="job" > 
+    <!-- <ion-item-divider>
+      Information
+      <p item-end>Posted: {{ post_time }}</p>  
+    </ion-item-divider> -->
+
+    <ion-card-content class="job">
+      <ion-item text-wrap>
+        <ion-icon name="briefcase" item-start></ion-icon>
+        <h2>Description</h2>
+        <p> {{ job.description }}</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-icon name="pin" item-start></ion-icon>
+        <h2>Address</h2>
+        <p>{{ job.address }}</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-icon name="hammer" item-start></ion-icon>
+        <h2>Skills</h2>
+        <ion-badge color="dark" *ngFor="let skill of getSkills(job.skills)">{{skill}}</ion-badge> 
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-icon name="document" item-start></ion-icon>
+        <h2>Experience</h2>
+        <p>{{ job.experience }}</p>
+      </ion-item>
+
+    </ion-card-content>
+    
+    <div padding [hidden]="applied">
+      <button ion-button  color="dark" block (click)="applyNow(job)">Apply now</button>
+    </div>
+    <div padding [hidden]="!applied">
+      <button ion-button  color="dark" block (click)="withdrawApplication(job)">Withdraw Application</button>
+    </div>
+ 
+  </ion-list>
+   
+</ion-content>

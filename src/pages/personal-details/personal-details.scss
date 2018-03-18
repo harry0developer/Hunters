@@ -1,0 +1,41 @@
+page-personal-details {
+    .datetime-md, .datetime-ios{
+        padding: 8px 0 !important;
+    }
+
+    ion-label{
+        font-size: 0.9em ;
+    }
+    .personal-details ion-grid{
+        border-left: solid 2px #ddd;
+        border-right: solid 2px #ddd;
+        border-bottom: solid 2px #ddd;
+        width: 95%;
+       
+    }
+    
+    .extra h2, .personal-details h2{
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .extra p, .personal-details p{
+        font-size: 0.9em;
+        font-weight: normal;
+    }
+    
+
+    ion-list-header{
+        border-top: 2px solid #000000 !important;
+        margin-top: 10px;
+    }
+
+    .tc button{
+        font-weight: normal;
+        font-size: 0.9em;
+    }
+    .tc ion-checkbox {
+        margin-right: 0;
+    }
+
+}

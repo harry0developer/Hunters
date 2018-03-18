@@ -1,16 +1,54 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
+<ion-menu [content]="content"  persistent="true" >
+  <ion-content class="con">
+    <div *ngIf="profile">
+      <img src="http://placehold.it/100x100" alt="" class="profile">
+      <h2>{{profile.firstname}} {{profile.lastname}}</h2>
+      <!-- <p>{{profile.title}} -->
+     <p>{{profile.type == 'Employee' ? "Candidate" : "Recruiter"}}</p> 
+    </div>
+    <ion-list *ngIf="profile">
+      <ion-item menuClose ion-item icon-left *ngIf="profile.type == 'Employee'" (click)="nav.setRoot(pages2.jobsPage)">
+        <ion-icon name="home" item-start></ion-icon>
+          Home
+      </ion-item>
+      <ion-item menuClose ion-item icon-left *ngIf="profile.type == 'Employer'" (click)="nav.setRoot(pages2.candidatesPage)">
+        <ion-icon name="home" item-start></ion-icon>
+          Home
+      </ion-item>
+      
+      <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages2.appointmentPage)">
+        <ion-icon name="calendar" item-start></ion-icon>
+          Appointment
+      </ion-item> 
+      <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages2.myJobsPage)">
+        <ion-icon name="briefcase" item-start></ion-icon>
+          My Jobs
+      </ion-item> 
+      <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages2.profilePage)">
+        <ion-icon name="person" item-start></ion-icon>
+          Profile
+      </ion-item>
+      <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages2.settingsPage)">
+        <ion-icon name="settings" item-start></ion-icon>
+          Settings
+      </ion-item>
+      <!-- <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages2.termsPage)">
+        <ion-icon name="information" item-start></ion-icon>
+          TS & CS
+      </ion-item>       -->
     </ion-list>
+
+    <ion-grid class="extras"> 
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button clear color="light" block menuClose (click)="nav.setRoot(pages2.termsPage)">Terms</button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button clear color="light" block menuClose (click)="logout()">Logout</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+     
   </ion-content>
 
 </ion-menu>

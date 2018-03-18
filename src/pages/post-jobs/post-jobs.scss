@@ -1,0 +1,31 @@
+page-post-jobs {
+
+    .offer{
+        border: 2px solid #000;
+    }
+    ion-row.details_row ion-label{
+        margin: 0 !important;
+    }
+
+    .currency{
+        font-size: 1.2em;
+        font-weight: bold;
+        padding-left: 27px;
+        color: #201E1E;
+        padding-top: 30px;
+    }
+ 
+    ion-col.salary ion-item{
+        padding-left: -2px;
+    }
+
+    .item-textarea{
+        margin: 5px;
+    }
+
+    .frequency{
+        height: 85px;
+    }
+}
+
+

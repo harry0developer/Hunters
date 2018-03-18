@@ -1,0 +1,151 @@
+ 
+<ion-header> </ion-header>
+  <ion-content padding color="original">
+
+
+      <ion-slides>
+
+        <ion-slide>  <!-- 1 -->
+          <div class="home-icon"> 
+            <i class="fa fa-sitemap"></i>
+            <p>What are you here for?</p>
+          </div>
+      
+          <ion-grid class="slider-con"> 
+            <ion-row class="type">
+              <ion-col col-5>
+                <h3><i class="fa fa-briefcase"></i></h3>
+                <button ion-button round block color="dark" (click)="type('Employer')">Employer</button>
+                <p>I provide jobs</p>
+              </ion-col>
+              <ion-col class="or" col-2>
+                <div class="up"></div>
+                <h2>  OR </h2>
+                <div class="up"></div>
+              </ion-col>
+              <ion-col col-5>
+                <h3><i class="fa fa-user"></i></h3>
+                <button ion-button round block color="dark" (click)="type('Employee')">Candidate</button>
+                <p>I need a job</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+
+        <ion-slide>  <!-- 2 -->
+          <div class="home-icon"> 
+            <i class="fa fa-user"></i>
+            <p>Who are you?</p>
+          </div>
+          
+          <ion-item>
+            <ion-label ><i class="fa fa-user" item-start></i>First name</ion-label>
+            <ion-input [(ngModel)]="data.firstname" align="right" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label ><i class="fa fa-user" item-start></i>Last name</ion-label>
+            <ion-input [(ngModel)]="data.lastname" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label ><i class="fa fa-transgender" item-start></i>Gender</ion-label>
+            <ion-select [(ngModel)]="data.gender" multiple="false">
+              <ion-option>Male</ion-option>
+              <ion-option>Female</ion-option>
+            </ion-select>
+          </ion-item> 
+          
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button block color="dark" icon-left round outline (click)="goPrev()">
+                  <ion-icon name="arrow-back"></ion-icon>
+                  Prev
+                </button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button block color="dark" icon-right round (click)="goNext()">Next
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+            
+        </ion-slide>
+      
+        <ion-slide > <!-- 3 -->
+          <div class="home-icon"> 
+            <i class="fa fa-flag"></i>
+            <p>Which part of the world?</p>
+          </div>
+          <ion-item>
+            <ion-label ><i class="fa fa-users" item-start></i>Race</ion-label>
+            <ion-select [(ngModel)]="data.race" multiple="false">
+              <ion-option>African/Black</ion-option>
+              <ion-option>Coloured</ion-option>
+              <ion-option>Indian</ion-option>
+              <ion-option>White</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item >
+            <ion-label ><i class="fa fa-flag" item-start></i>Nationality</ion-label>
+            <ion-select [(ngModel)]="data.nationality" multiple="false">
+              <ion-option *ngFor="let country of countries" >{{country.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label ><i class="fa fa-calendar" item-start></i>Date of birth</ion-label>
+            <ion-datetime displayFormat="DD-MMM-YYYY" max="2001" [(ngModel)]="data.dob"></ion-datetime>
+          </ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button color="dark" block icon-left round outline (click)="goPrev()">
+                  <ion-icon name="arrow-back"></ion-icon>
+                  Prev
+                </button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button color="dark" block icon-right round (click)="goNext()">Next
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+      
+        <ion-slide > <!-- 4 -->
+          <div class="home-icon"> 
+            <i class="fa fa-map"></i>
+            <p>How can we get hold of you?</p>
+          </div>
+
+          <ion-item>
+            <ion-label ><i class="fa fa-phone" item-start></i>Phone Number</ion-label>
+            <ion-input [(ngModel)]="data.phone" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label ><i class="fa fa-map-pin" item-start></i>Address</ion-label>
+            <ion-input [(ngModel)]="data.address" type="text"></ion-input>
+          </ion-item>
+          
+          <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                  <button ion-button color="dark" block round icon-left outline (click)="goPrev()">
+                    <ion-icon name="arrow-back"></ion-icon>
+                    Prev
+                  </button>
+                </ion-col>
+                <ion-col col-6>
+                  <button ion-button color="dark" block round icon-right (click)="signup()">Complete
+                      <ion-icon name="checkmark"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-slide>
+        
+      </ion-slides>
+  </ion-content>
+  

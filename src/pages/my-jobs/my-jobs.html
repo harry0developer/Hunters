@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="profile && profile.type == 'Employee'">Applied Jobs</ion-title>
+    <ion-title *ngIf="profile && profile.type == 'Employer'">Posted Jobs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding> 
+
+  <ion-list *ngIf="profile && profile.type == 'Employee'">
+    <div *ngIf="myJobs.length < 1">
+      <ion-item-divider >
+        <h2> Applied Jobs</h2>
+      </ion-item-divider>
+      <ion-item text-wrap> 
+        <h2>You haver not applied for any job yet.</h2> 
+        <p>All jobs you have applied for will appear and managed here.</p>
+      </ion-item>
+    </div> 
+    <div *ngIf="myJobs.length > 0">
+      <ion-item *ngFor="let job of myJobs" tappable (click)="jobDetails(job)">
+        <ion-thumbnail item-start>
+          <img src="assets/categories/{{job.category}}.svg">
+        </ion-thumbnail> 
+        <h2 *ngIf="job">{{job.title}}</h2>
+        <p *ngIf="job">{{job.category}}</p>
+        <p *ngIf="job">{{job.type }}</p>
+        <ion-icon name="arrow-forward" item-end></ion-icon>
+        
+      </ion-item>
+    </div>
+  </ion-list> 
+
+  
+  <ion-list *ngIf="profile && profile.type == 'Employer'">
+    <div *ngIf="postedJobs && postedJobs.length < 1">
+      <ion-item text-wrap> 
+        <h2>You haver not posted any job yet.</h2> 
+        <p>All your posted jobs will appear and managed here.</p>
+      </ion-item>
+    </div> 
+    <div *ngIf="postedJobs && postedJobs.length > 0">
+      <ion-item *ngFor="let job of postedJobs" tappable (click)="jobDetails(job)">
+        <div  item-start>
+          <div *ngIf="job && job.viewedUsers" class="stats">
+            <h2>{{job.viewedUsers.length}}</h2>
+            <p> Viewed</p>
+          </div>
+         <div *ngIf="job && job.appliedUsers" class="stats">
+           <h2 >{{job.appliedUsers.length}}</h2>
+           <p>Applied</p>
+          </div>
+        </div>
+        <h2 *ngIf="job">{{job.title}}</h2>
+        <p *ngIf="job">{{job.category}}</p>
+        <p *ngIf="job">{{job.type }}</p>
+        <ion-icon name="arrow-forward" item-end></ion-icon>
+      </ion-item>
+    </div> 
+  </ion-list> 
+</ion-content>
