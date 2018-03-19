@@ -14,7 +14,8 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
+//#009688
+@import '../theme/style';
  
 .profile{
     border: 4px solid #fff;
@@ -63,7 +64,7 @@
 }
  
 ion-content.content{
-    background-color: #009688;
+    background-color: $primary;
 }
  
 
@@ -72,7 +73,7 @@ h2{
 }
 
 .toolbar-background{
-    background-color: #009688 !important;
+    background-color: $primary !important;
     color: #fff !important;
 }
 

@@ -1,6 +1,6 @@
+
 .ios, .md {
   page-job-details{
-    $primary_color: #009688;
 
     .scroll {
       height: 100%
@@ -16,13 +16,13 @@
     }
       
     ion-badge.badge{
-      background-color: $primary_color;
+      background-color: $primary;
       padding: 5px;
       margin: 2px;
     }
 
     .job ion-icon{
-      color: $primary_color
+      color: $primary
     }
 
     .banner{
@@ -30,7 +30,7 @@
       background-color: #fff;
       height: 45%;
       padding-top: 50px;
-      color: $primary_color;
+      color: $secondary;
     }
     .banner img{
       width: 20%;

@@ -35,13 +35,16 @@
         <i class="fa fa-venus-mars" item-start></i>
         {{user.gender}}
       </p> 
-      <div class="rating" item-end>
+      <div item-end>
+        <p>{{getLastSeen(user)}}</p>
+      </div>
+      <!-- <div class="rating" item-end>
         <p *ngIf="user.rating == 1">&#9733;&#9734;&#9734;&#9734;&#9734;</p>
         <p *ngIf="user.rating == 2">&#9733;&#9733;&#9734;&#9734;&#9734;</p>
         <p *ngIf="user.rating == 3">&#9733;&#9733;&#9733;&#9734;&#9734;</p>
         <p *ngIf="user.rating == 4">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
         <p *ngIf="user.rating == 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p> 
-      </div>
+      </div> -->
     </ion-item>
     <ion-item text-wrap *ngIf="!candidates || (candidates && candidates.length < 1)">
       <p>No candidates matching that category.</p> 

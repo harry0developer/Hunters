@@ -24,9 +24,9 @@
       <ion-input type="password" [(ngModel)]="data.cpassword"></ion-input>
     </ion-item>
   </ion-list>
-
-  <button ion-button block color="dark"  (click)="sendOTP()">Verify Email Adddress</button>
-  <button ion-button block color="dark" clear (click)="dismiss()">Cancel Registration</button>
-  
+  <button ion-button block round color="dark"  (click)="sendOTP()">Verify Email Adddress</button>
 </ion-content>
+<ion-footer>
+  <button ion-button block color="dark" clear (click)="dismiss()">Cancel Registration</button>
+</ion-footer>
   

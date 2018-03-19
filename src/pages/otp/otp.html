@@ -1,15 +1,8 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>OTP Code</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
+<ion-header></ion-header>
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
+  <ion-grid class="logo">
+    <ion-row >
       <ion-col col-3></ion-col>
       <ion-col col-6>
         <img src="assets/logo.svg" alt="">
@@ -20,13 +13,14 @@
   <ion-list no-lines>
     <p class="otp">Enter 5 digit Code send to your email address. e.g 12345</p>
     <ion-item>
-      <ion-label floating><i class="fa fa-user-circle-o" item-start></i>OTP Code</ion-label>
+      <ion-label floating><i class="fa fa-lock-open" item-start></i>OTP Code</ion-label>
       <ion-input type="number" [(ngModel)]="otp"></ion-input>
     </ion-item> 
   </ion-list>
-
   <button ion-button block color="dark" round (click)="confirmOTP()">Confirm Code</button>
   <button ion-button block color="dark" clear (click)="resendOTP()">Did not get the code? Resend</button>
-  
-
 </ion-content>
+
+<ion-footer>
+  <button ion-button block color="dark" clear (click)="dismiss()">Cancel Registration</button>
+</ion-footer>

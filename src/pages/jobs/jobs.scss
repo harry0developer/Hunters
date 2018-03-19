@@ -9,7 +9,6 @@ page-jobs {
     .job p{
         font-size: 1em; 
     }
-
  
     ion-thumbnail img{
         padding: 10%;
@@ -20,11 +19,11 @@ page-jobs {
     }
 
     ion-label i{
-        color: #009688;
+        color: $secondary;
     }
 
     ion-list-header.item{
-        background-color: #67beb5;
+        background-color: $secondary;
         color: #fff;
     }
     

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController, AlertController }
 import { SetupPage} from '../setup/setup';
 import { DataProvider } from '../../providers/data/data';
 import { UserTypePage } from '../user-type/user-type';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -86,6 +87,10 @@ export class OtpPage {
       console.log(err);
       this.dataProvider.dismissLoading();
     })
+  }
+
+  dismiss(){
+    this.navCtrl.setRoot(LoginPage)
   }
 
 }

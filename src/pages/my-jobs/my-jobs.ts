@@ -85,7 +85,6 @@ export class MyJobsPage {
   }
 
   countJobViews(job){
-    let count = 0;
     let views;
     let vJobs = [];
     let users = [];
@@ -110,7 +109,6 @@ export class MyJobsPage {
   }
 
   countApplied(job){
-    let count = 0;
     let aJobs = [];
     let users = [];
     this.dataProvider.loadAppliedJobs().then(res => {
