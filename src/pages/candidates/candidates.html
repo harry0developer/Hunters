@@ -11,7 +11,7 @@
     </ion-buttons> 
   </ion-navbar>
   <ion-toolbar color="dark">
-    <ion-searchbar [(ngModel)]="searchTerm" placeholder="Search jobs..." [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" placeholder="Search users..." [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
     <div *ngIf="searching" class="spinner-container">
       <ion-spinner></ion-spinner>
     </div>
@@ -35,16 +35,9 @@
         <i class="fa fa-venus-mars" item-start></i>
         {{user.gender}}
       </p> 
-      <div item-end>
-        <p>{{getLastSeen(user)}}</p>
-      </div>
-      <!-- <div class="rating" item-end>
-        <p *ngIf="user.rating == 1">&#9733;&#9734;&#9734;&#9734;&#9734;</p>
-        <p *ngIf="user.rating == 2">&#9733;&#9733;&#9734;&#9734;&#9734;</p>
-        <p *ngIf="user.rating == 3">&#9733;&#9733;&#9733;&#9734;&#9734;</p>
-        <p *ngIf="user.rating == 4">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-        <p *ngIf="user.rating == 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p> 
-      </div> -->
+      <div item-end class="last-seen"> 
+        {{getLastSeen(user)}}
+      </div> 
     </ion-item>
     <ion-item text-wrap *ngIf="!candidates || (candidates && candidates.length < 1)">
       <p>No candidates matching that category.</p> 

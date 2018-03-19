@@ -4,7 +4,6 @@ import { FormControl } from '@angular/forms';
 
 import { FilterPage } from '../filter/filter';
 import { UserDetailsPage } from '../user-details/user-details';
-import { JobDetailsPage } from '../job-details/job-details';
 import { DataProvider } from '../../providers/data/data';
 import 'rxjs/add/operator/debounceTime';
 import * as moment from 'moment';
@@ -207,4 +206,5 @@ export class CandidatesPage {
   getLastSeen(user){
     return moment(user.lastSeen, "YYYYMMDD").fromNow();  
   }
+  
 }

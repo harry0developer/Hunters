@@ -43,9 +43,7 @@ export class LoginPage {
   login(){
     this.dataProvider.presentLoading("Logging in...");
     let res; 
-    // this.data = {email:"harry@test.com", password: "123456"};
-    console.log(this.data);
- 
+    this.data.lastSeen = this.dataProvider.getDate();
     this.dataProvider.postData(this.data,'login').then((result) => {
       res = result;
       if(res && res.error){
@@ -53,7 +51,6 @@ export class LoginPage {
         this.dataProvider.presentAlert("Login Failed", "Email and Password do not match");
       }else{
         this.dataProvider.dismissLoading();
-        console.log(res.data);
         localStorage.setItem('user', JSON.stringify(res.data));
         this.ionEvents.publish("user:loggedIn", res.data);
         if(res.data.type == "Employer"){

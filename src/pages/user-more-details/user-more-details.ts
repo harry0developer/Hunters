@@ -32,6 +32,8 @@ export class UserMoreDetailsPage {
     this.skills = this.navParams.get('skills');
     this.experience = this.navParams.get('experience');
     this.education = this.navParams.get('education');
+
+    console.log(this.skills);
   }
 
   dismiss() {

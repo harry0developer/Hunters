@@ -76,13 +76,16 @@
                   <p *ngIf="user.criminal == 'Yes'">{{user.disability}}</p>
                 </ion-item>
             </ion-col>
+            <ion-col>
+              <ion-item text-wrap>
+                <i class="fa fa-map-marker" item-start></i>
+                <p>{{user.address}}</p>
+              </ion-item> 
+            </ion-col>
           </ion-row>
         </ion-grid>
 
-        <ion-item text-wrap>
-          <i class="fa fa-map-marker-alt" item-start></i>
-          <p>{{user.address}}</p>
-        </ion-item> 
+       
       </div>
 
       <div class="social">
@@ -131,7 +134,7 @@
         <ion-item-divider >
           No education profile
         </ion-item-divider>
-        <div class="edu">
+        <div class="no-details">
           <ion-item> 
             <p text-wrap>
              This user has not updated his education profile yet. Check later.
@@ -144,12 +147,10 @@
         <ion-item-divider>
             {{edu.institution}} 
           <p item-end>
-            <!-- <i class="fa fa-calendar" item-start></i> -->
             <span class="bold">From: {{getShortDate(edu.date_started)}} - {{getEduShortDate(edu.date_completed) }}</span>
           </p> 
         </ion-item-divider>
         <div class="edu">
-
           <ion-item> 
             <p>
               <i class="fa fa-university" item-start></i>
@@ -176,9 +177,11 @@
         <ion-item-divider>
           No work experience profile
         </ion-item-divider>
-        <ion-item *ngIf="experience">
-          <p text-wrap> This user has not updated his work experience, check back later </p>
-        </ion-item>
+        <div class="no-details">
+          <ion-item *ngIf="experience">
+            <p text-wrap> This user has not updated his work experience, check back later </p>
+          </ion-item>
+        </div>
       </div>
 
       <div *ngFor="let exp of experience">
@@ -213,11 +216,13 @@
         <ion-item-divider>
            No Skill profile found
         </ion-item-divider>
-        <ion-item>
-          <p text-wrap>
-           This user has not updated his skills yes, check  back later
-          </p> 
-        </ion-item> 
+        <div class="no-details">
+          <ion-item > 
+            <p text-wrap>
+              This user has not updated his skills yes, check  back later
+            </p> 
+          </ion-item> 
+        </div>
       </div>
         
       <div *ngFor="let skill of skills">

@@ -1,26 +1,35 @@
 page-candidates {
+    
+    p, p > i{
+        font-size: .9em !important;
+    }
     p > i{
         color: $secondary;
     }
+    h2{
+        padding-bottom: 8px;
+        font-size: 1.2em !important;
+    }
     .user img{
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         border: 2px solid $primary;
     }
+    
+    ion-item.user{
+        margin: 10px 0 !important;
+    } 
     .spinner-container {
         width: 100%;
         text-align: center;
         padding: 10px;
         background:transparent !important;
     } 
-    
-    ion-item.user{
-        margin: 10px 0 !important;
-    } 
-    h2{
-        padding-bottom: 8px;
-    }
+   
     .item i{
         margin: 4px 2px !important
+    }
+    .last-seen {
+        font-size: 0.7em;
     }
 }

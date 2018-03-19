@@ -3,8 +3,8 @@
     <div *ngIf="profile">
       <img src="http://placehold.it/100x100" alt="" class="profile">
       <h2>{{profile.firstname}} {{profile.lastname}}</h2>
-      <!-- <p>{{profile.title}} -->
      <p>{{profile.type == 'Employee' ? "Candidate" : "Recruiter"}}</p> 
+     <!-- <p>{{profile.lastSeen}} -->
     </div>
     <ion-list *ngIf="profile">
       <ion-item menuClose ion-item icon-left *ngIf="profile.type == 'Employee'" (click)="nav.setRoot(pages2.jobsPage)">
