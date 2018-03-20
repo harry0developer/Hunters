@@ -19,7 +19,7 @@ import { CandidatesPage } from '../pages/candidates/candidates';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SetupPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
   pages2: any = {}; 

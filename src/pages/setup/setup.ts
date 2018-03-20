@@ -4,6 +4,7 @@ import { DataProvider } from '../../providers/data/data';
 import { TermsPage } from '../terms/terms';
 import { CandidatesPage } from '../candidates/candidates';
 import { JobsPage } from '../jobs/jobs';
+import { User } from '../../interface/user';
 
 @IonicPage()
 @Component({
@@ -11,13 +12,15 @@ import { JobsPage } from '../jobs/jobs';
   templateUrl: 'setup.html',
 })
 export class SetupPage {
-  @ViewChild(Slides) slides: Slides;
-  // data: any = {firstname:"", lastname:"", dob:"", gender:"", nationality:"", race:"", phone:"", address:"", type: ""};
+  @ViewChild(Slides) slides: Slides; 
+ 
+  data: any = {firstname: "", lastname:"", email:"", password:"", gender:"", race:"",
+  nationality:"", dob:"", phone:"", date_created:"", lastSeen:"", type:"", status:""}; 
+  
   nationalities: any;
   countries: any;
   user: any;
   titles: any;
-  data: any = {};
   mode:string = 'vertical';
   selectedIndex = 0;
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public ionEvents: Events, public dataProvider: DataProvider, 
@@ -26,11 +29,12 @@ export class SetupPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SetupPage');
-    // this.dataProvider.presentAlert("Welcome", "Complete your profile details and then you are set.");
-    // this.data = this.navParams.get("data");
-    // console.log(this.data)
+    this.dataProvider.presentAlert("Welcome", "Complete your details, then you are good to go.");
+    const data = this.navParams.get("data");
+    this.data.email = data.email;
+    this.data.password = data.password;
     this.getCountries();
-    this.getTitles()
+    this.getTitles();
     
   }
 
@@ -62,11 +66,13 @@ export class SetupPage {
       console.log(err);
     })
   }
-
-
+ 
   signup(){
     this.dataProvider.presentLoading("Please wait...");
     let res;  
+    this.data.date_created = this.dataProvider.getDate();
+    this.data.nationality = this.data.nationality.trim();
+    this.data.status = "Active";
     console.log(this.data);
     this.dataProvider.postData(this.data, "signup").then((result) => {
       res = result;

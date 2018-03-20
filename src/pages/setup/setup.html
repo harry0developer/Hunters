@@ -1,7 +1,7 @@
 <ion-header> </ion-header>
   <ion-content padding color="original">
       <ion-slides>
-
+        
         <ion-slide>  <!-- 1 -->
           <div class="home-icon"> 
             <i class="fa fa-sitemap"></i>
@@ -38,6 +38,7 @@
             <ion-icon name="radio-button-on"></ion-icon>
             <ion-icon name="radio-button-off"></ion-icon>
             <ion-icon name="radio-button-off"></ion-icon>
+            <ion-icon name="radio-button-off"></ion-icon>
           </div>
           <ion-item>
             <ion-label><i class="fa fa-user" item-start></i>First name</ion-label>
@@ -46,15 +47,8 @@
           <ion-item>
             <ion-label><i class="fa fa-user" item-start></i>Last name</ion-label>
             <ion-input [(ngModel)]="data.lastname" type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label><i class="fa fa-transgender" item-start></i>Gender</ion-label>
-            <ion-select [(ngModel)]="data.gender" multiple="false">
-              <ion-option>Male</ion-option>
-              <ion-option>Female</ion-option>
-            </ion-select>
           </ion-item> 
-          
+
           <ion-grid>
             <ion-row>
               <ion-col col-6>
@@ -70,15 +64,55 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-            
+
+        </ion-slide>
+
+        <ion-slide>  <!-- 3 -->
+          <div class="home-icon"> 
+            <i class="fa fa-transgender"></i>
+            <p>What's your sexual orientation?</p>
+          </div>
+          <div class="paging">
+            <ion-icon name="radio-button-off"></ion-icon>
+            <ion-icon name="radio-button-on"></ion-icon>
+            <ion-icon name="radio-button-off"></ion-icon>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <ion-item>
+            <ion-label><i class="fa fa-transgender" item-start></i>Gender</ion-label>
+            <ion-select [(ngModel)]="data.gender" multiple="false">
+              <ion-option>Male</ion-option>
+              <ion-option>Female</ion-option>
+            </ion-select>
+          </ion-item> 
+          <ion-item>
+            <ion-label ><i class="fa fa-calendar" item-start></i>Date of birth</ion-label>
+            <ion-datetime displayFormat="DD-MMM-YYYY" max="2001" [(ngModel)]="data.dob"></ion-datetime>
+          </ion-item>
+          <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                  <button ion-button block color="dark" icon-left round outline (click)="goPrev()">
+                    <ion-icon name="arrow-back"></ion-icon>
+                    Prev
+                  </button>
+                </ion-col>
+                <ion-col col-6>
+                  <button ion-button block color="dark" icon-right round (click)="goNext()">Next
+                      <ion-icon name="arrow-forward"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
         </ion-slide>
       
-        <ion-slide > <!-- 3 -->
+        <ion-slide > <!-- 4 -->
           <div class="home-icon"> 
             <i class="fa fa-flag"></i>
             <p>Which part of the world?</p>
           </div>
           <div class="paging">
+            <ion-icon name="radio-button-off"></ion-icon>
             <ion-icon name="radio-button-off"></ion-icon>
             <ion-icon name="radio-button-on"></ion-icon>
             <ion-icon name="radio-button-off"></ion-icon>
@@ -99,11 +133,8 @@
                 {{country.name}}
               </ion-option>
             </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label ><i class="fa fa-calendar" item-start></i>Date of birth</ion-label>
-            <ion-datetime displayFormat="DD-MMM-YYYY" max="2001" [(ngModel)]="data.dob"></ion-datetime>
-          </ion-item>
+          </ion-item>          
+        
           <ion-grid>
             <ion-row>
               <ion-col col-6>
@@ -113,20 +144,21 @@
                 </button>
               </ion-col>
               <ion-col col-6>
-                <button ion-button color="dark" block icon-right round (click)="goNext()">Next
+                <button ion-button block color="dark" icon-right round (click)="goNext()">Next
                     <ion-icon name="arrow-forward"></ion-icon>
                 </button>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-slide>
-      
-        <ion-slide > <!-- 4 -->
+
+        <ion-slide > <!-- 5 -->
           <div class="home-icon"> 
-            <i class="fa fa-map"></i>
-            <p *ngIf="data">How can {{data.type == 'Employer'? "Candidates":"Employers"}} get hold of you?</p>
+            <i class="fa fa-phone"></i>
+            <p>How can {{ data.type == 'Employer'? "Candidates": "Employers"}} contact you?</p>
           </div>
           <div class="paging">
+            <ion-icon name="radio-button-off"></ion-icon>
             <ion-icon name="radio-button-off"></ion-icon>
             <ion-icon name="radio-button-off"></ion-icon>
             <ion-icon name="radio-button-on"></ion-icon>
@@ -134,29 +166,24 @@
           <ion-item>
             <ion-label ><i class="fa fa-phone" item-start></i>Phone Number</ion-label>
             <ion-input [(ngModel)]="data.phone" type="text"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label ><i class="fa fa-map-pin" item-start></i>Address</ion-label>
-            <ion-input [(ngModel)]="data.address" type="text"></ion-input>
-          </ion-item>
-          
+          </ion-item>        
+        
           <ion-grid>
-              <ion-row>
-                <ion-col col-6>
-                  <button ion-button color="dark" block round icon-left outline (click)="goPrev()">
-                    <ion-icon name="arrow-back"></ion-icon>
-                    Prev
-                  </button>
-                </ion-col>
-                <ion-col col-6>
-                  <button ion-button color="dark" block round icon-right (click)="signup()">Complete
-                      <ion-icon name="checkmark"></ion-icon>
-                  </button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-        </ion-slide>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button color="dark" block icon-left round outline (click)="goPrev()">
+                  <ion-icon name="arrow-back"></ion-icon>
+                  Prev
+                </button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button color="dark" block round icon-right (click)="signup()">Complete
+                    <ion-icon name="checkmark"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide> 
       </ion-slides>
   </ion-content>
   

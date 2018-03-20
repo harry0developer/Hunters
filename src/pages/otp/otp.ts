@@ -18,13 +18,11 @@ export class OtpPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OtpPage');
     this.data = this.navParams.get("data");
-    console.log(this.data);
   }
 
  
   confirmOTP(){    
     if(this.data.otp == this.otp){
-      // this.navCtrl.setRoot(UserTypePage , {data: this.data});
       this.navCtrl.setRoot(SetupPage , {data: this.data});
     }else{
       console.log(this.otp + " " + this.data.otp);

@@ -482,8 +482,8 @@ export class DataProvider {
   }
 
   getDate(){
-    const d = new Date();
-    return  d.getFullYear() + "-"+ (d.getMonth()+1) + "-"+d.getDate();
+    var date = moment.now();
+    return moment(date).format("MM/DD/YYYY HH:mm");
   }
  
 }

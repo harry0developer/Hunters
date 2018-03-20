@@ -1,13 +1,6 @@
 page-setup {
-  
-    input.text-input{
-      text-align: right;
-    }
-
-    .item-inner{
-      border-bottom: none !important;
-    }
-
+    @import '../../theme/form-style';
+    
     .home-icon {
         margin-bottom: 20px;
     }

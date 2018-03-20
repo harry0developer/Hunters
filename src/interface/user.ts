@@ -1,0 +1,15 @@
+export interface User{
+    email: string,
+    password: string,
+    firstname: string,
+    lastname: string,
+    gender: string,
+    race: string,
+    nationality: string,
+    dob: string,
+    phone: string,
+    date_created: string,
+    lastSeen: string,
+    type: string,
+    status: string,
+};

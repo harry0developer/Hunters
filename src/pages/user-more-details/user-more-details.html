@@ -60,32 +60,10 @@
           </ion-row>
         </ion-grid> 
          
-        <ion-grid *ngIf="user.type == 'Employee'"> 
-          <ion-row>
-            <ion-col>
-                <ion-item text-wrap>
-                  <i class="fa fa-user-secret" item-start></i>
-                  <p *ngIf="user.criminal == 'No'">No criminal record</p>
-                  <p *ngIf="user.criminal == 'Yes'">{{user.criminal}}</p>
-                </ion-item>
-            </ion-col>
-            <ion-col>
-                <ion-item text-wrap>
-                  <i class="fa fa-wheelchair" item-start></i>
-                  <p *ngIf="user.criminal == 'No'">No disabilities</p>
-                  <p *ngIf="user.criminal == 'Yes'">{{user.disability}}</p>
-                </ion-item>
-            </ion-col>
-            <ion-col>
-              <ion-item text-wrap>
-                <i class="fa fa-map-marker" item-start></i>
-                <p>{{user.address}}</p>
-              </ion-item> 
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-
-       
+        <ion-item text-wrap>
+          <i class="fa fa-map-marker" item-start></i>
+          <p>{{user.address}}</p>
+        </ion-item> 
       </div>
 
       <div class="social">

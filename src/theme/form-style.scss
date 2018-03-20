@@ -1,0 +1,19 @@
+ion-item.item-input, ion-item.item-datetime, ion-item.item-select{
+    border-radius: 100px;
+    margin: 4px 0; 
+}
+ion-item.item-input.item, ion-item.item{
+    background: rgba(255,255,255, .5);
+}
+
+ion-input, .select-text{
+    font-weight: bold;
+}
+
+ion-label.label, ion-input, .select-text{
+    color: $dark !important;
+}
+
+.item-inner{
+    border-bottom: none !important;
+}
