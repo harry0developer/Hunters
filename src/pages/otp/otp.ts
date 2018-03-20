@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { SetupPage} from '../setup/setup';
 import { DataProvider } from '../../providers/data/data';
-import { UserTypePage } from '../user-type/user-type';
 import { LoginPage } from '../login/login';
 
 @IonicPage()

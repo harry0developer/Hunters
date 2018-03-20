@@ -34,17 +34,21 @@
             <i class="fa fa-user"></i>
             <p>Who are you?</p>
           </div>
-          
+          <div class="paging">
+            <ion-icon name="radio-button-on"></ion-icon>
+            <ion-icon name="radio-button-off"></ion-icon>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
           <ion-item>
-            <ion-label ><i class="fa fa-user" item-start></i>First name</ion-label>
+            <ion-label><i class="fa fa-user" item-start></i>First name</ion-label>
             <ion-input [(ngModel)]="data.firstname" align="right" type="text"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label ><i class="fa fa-user" item-start></i>Last name</ion-label>
+            <ion-label><i class="fa fa-user" item-start></i>Last name</ion-label>
             <ion-input [(ngModel)]="data.lastname" type="text"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label ><i class="fa fa-transgender" item-start></i>Gender</ion-label>
+            <ion-label><i class="fa fa-transgender" item-start></i>Gender</ion-label>
             <ion-select [(ngModel)]="data.gender" multiple="false">
               <ion-option>Male</ion-option>
               <ion-option>Female</ion-option>
@@ -74,6 +78,11 @@
             <i class="fa fa-flag"></i>
             <p>Which part of the world?</p>
           </div>
+          <div class="paging">
+            <ion-icon name="radio-button-off"></ion-icon>
+            <ion-icon name="radio-button-on"></ion-icon>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
           <ion-item>
             <ion-label ><i class="fa fa-users" item-start></i>Race</ion-label>
             <ion-select [(ngModel)]="data.race" multiple="false">
@@ -86,7 +95,9 @@
           <ion-item >
             <ion-label ><i class="fa fa-flag" item-start></i>Nationality</ion-label>
             <ion-select [(ngModel)]="data.nationality" multiple="false">
-              <ion-option *ngFor="let country of countries" >{{country.name}}</ion-option>
+              <ion-option *ngFor="let country of countries"> 
+                {{country.name}}
+              </ion-option>
             </ion-select>
           </ion-item>
           <ion-item>
@@ -113,9 +124,13 @@
         <ion-slide > <!-- 4 -->
           <div class="home-icon"> 
             <i class="fa fa-map"></i>
-            <p>How can we get hold of you?</p>
+            <p *ngIf="data">How can {{data.type == 'Employer'? "Candidates":"Employers"}} get hold of you?</p>
           </div>
-
+          <div class="paging">
+            <ion-icon name="radio-button-off"></ion-icon>
+            <ion-icon name="radio-button-off"></ion-icon>
+            <ion-icon name="radio-button-on"></ion-icon>
+          </div>
           <ion-item>
             <ion-label ><i class="fa fa-phone" item-start></i>Phone Number</ion-label>
             <ion-input [(ngModel)]="data.phone" type="text"></ion-input>

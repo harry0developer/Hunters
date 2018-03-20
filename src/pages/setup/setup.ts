@@ -5,7 +5,6 @@ import { TermsPage } from '../terms/terms';
 import { CandidatesPage } from '../candidates/candidates';
 import { JobsPage } from '../jobs/jobs';
 
-
 @IonicPage()
 @Component({
   selector: 'page-setup',
@@ -21,7 +20,6 @@ export class SetupPage {
   data: any = {};
   mode:string = 'vertical';
   selectedIndex = 0;
-
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public ionEvents: Events, public dataProvider: DataProvider, 
     public actionSheetCtrl: ActionSheetController, public modalCtrl: ModalController, public navParams: NavParams) {
     }
@@ -31,8 +29,8 @@ export class SetupPage {
     // this.dataProvider.presentAlert("Welcome", "Complete your profile details and then you are set.");
     // this.data = this.navParams.get("data");
     // console.log(this.data)
-    // this.getCountries();
-    // this.getTitles()
+    this.getCountries();
+    this.getTitles()
     
   }
 

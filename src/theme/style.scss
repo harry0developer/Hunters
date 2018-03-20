@@ -1,2 +1,16 @@
 $primary : #e8b911;
 $secondary: #cea619;
+$dark: #333;
+ion-item.item{
+    border-radius: 100px;
+    margin: 4px 0; 
+    background: rgba(255,255,255, .5);
+}
+
+ion-input, .select-text{
+    font-weight: bold;
+}
+
+ion-label.label, ion-input, .select-text{
+    color: $dark !important;
+}

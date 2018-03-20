@@ -1,11 +1,15 @@
 page-setup {
   
-   .content{
-        background-color: #E8B911 !important;
-   }
- 
+    input.text-input{
+      text-align: right;
+    }
+
+    .item-inner{
+      border-bottom: none !important;
+    }
+
     .home-icon {
-        margin-bottom: 20%;
+        margin-bottom: 20px;
     }
     .home-icon i{
         font-size: 4em;
@@ -14,16 +18,10 @@ page-setup {
     .but{
         margin-top: 40px;
     }
-    .dot .col{
-        font-size: 0.6em;
-    }
 
-    // .dot .col.active{
-    //     border-bottom: 1px solid #000;
-     
-    // }
-    .dot {
-        margin: 30px 0;
+    .paging{
+        margin: 20px 0;
+        font-size: 0.8em;
     }
     
     .type h3{
@@ -40,7 +38,7 @@ page-setup {
     .up{
         height: 30px;
         width: 2px;
-        background-color: #000;
+        background-color: $dark;
         position: relative;
         left: 50%;
     }
