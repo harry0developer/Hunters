@@ -18,9 +18,7 @@ import { PostJobsPage } from '../post-jobs/post-jobs';
 export class JobsPage {
   items: any[];
   users: any;
-
   type: string;
-
   data: any;
   jobs: any;
   profile: any;

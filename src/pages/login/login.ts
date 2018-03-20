@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ModalController, NavParams, Events } from 'ionic-angular';
-
 import { SignupPage } from '../signup/signup';
-// import { JobsPage } from '../jobs/jobs';
-import { HomePage } from '../home/home';
-
 import { DataProvider } from '../../providers/data/data';
 import { JobsPage } from '../jobs/jobs';
 import { CandidatesPage } from '../candidates/candidates';

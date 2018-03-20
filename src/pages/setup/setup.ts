@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, ModalController, ViewController, NavParams, ActionSheetController, Events, Slides } from 'ionic-angular';
-
 import { DataProvider } from '../../providers/data/data';
 import { TermsPage } from '../terms/terms';
-import { HomePage } from '../home/home';
+import { CandidatesPage } from '../candidates/candidates';
+import { JobsPage } from '../jobs/jobs';
 
 
 @IonicPage()
@@ -47,11 +47,6 @@ export class SetupPage {
     this.slides.slidePrev(400);
   }
 
-  login(){
-    localStorage.setItem("user", JSON.stringify(this.data))
-    this.navCtrl.setRoot(HomePage);
-  }
-
   getCountries(){
     this.dataProvider.getCountries().then(res => {
       console.log(res);
@@ -85,7 +80,11 @@ export class SetupPage {
         console.log(res.data);
         localStorage.setItem('user', JSON.stringify(res.data));
         this.ionEvents.publish("user:loggedIn", res.data);
-        this.navCtrl.setRoot(HomePage);
+        if(res.data.type == 'Employee'){
+          this.navCtrl.setRoot(CandidatesPage);
+        }else{
+          this.navCtrl.setRoot(JobsPage);
+        }
       }
     }).catch(err => {
       console.log(err);
