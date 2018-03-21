@@ -9,7 +9,7 @@
 </ion-header>
 
 
-<ion-content padding> 
+<ion-content> 
 
   <ion-list *ngIf="profile && profile.type == 'Employee'">
     <div *ngIf="myJobs.length < 1">
@@ -36,30 +36,26 @@
   </ion-list> 
 
   
-  <ion-list *ngIf="profile && profile.type == 'Employer'">
-    <div *ngIf="postedJobs && postedJobs.length < 1">
-      <ion-item text-wrap> 
-        <h2>You haver not posted any job yet.</h2> 
-        <p>All your posted jobs will appear and managed here.</p>
-      </ion-item>
-    </div> 
-    <div *ngIf="postedJobs && postedJobs.length > 0">
-      <ion-item *ngFor="let job of postedJobs" tappable (click)="jobDetails(job)">
-        <div  item-start>
-          <div *ngIf="job && job.viewedUsers" class="stats">
-            <h2>{{job.viewedUsers.length}}</h2>
-            <p> Viewed</p>
+  <ion-list>
+    <div class="job" *ngFor="let job of postedJobs" tappable (click)="jobDetails(job)">
+        <ion-list *ngIf="job" (click)="jobDetails(job)">
+          <ion-item>
+              <h2 *ngIf="job">{{job.title}}</h2>
+              <p *ngIf="job">{{job.category}}</p>
+              <p *ngIf="job">{{job.type }}</p>
+          </ion-item>
+        </ion-list> 
+        <ion-item-divider>
+          <div item-start *ngIf="job && job.viewedUsers">
+            <p><i class="fa fa-eye"></i> {{job.viewedUsers.length}} Views</p>
           </div>
-         <div *ngIf="job && job.appliedUsers" class="stats">
-           <h2 >{{job.appliedUsers.length}}</h2>
-           <p>Applied</p>
+          <div>
+              <p><i class="fa fa-calendar"></i> {{job.date_created}}</p>
           </div>
-        </div>
-        <h2 *ngIf="job">{{job.title}}</h2>
-        <p *ngIf="job">{{job.category}}</p>
-        <p *ngIf="job">{{job.type }}</p>
-        <ion-icon name="arrow-forward" item-end></ion-icon>
-      </ion-item>
-    </div> 
-  </ion-list> 
+          <div item-end *ngIf="job && job.appliedUsers">
+            <p><i class="fa fa-archive"></i> {{job.appliedUsers.length}} Applied</p>
+          </div>
+        </ion-item-divider>
+      </div>
+  </ion-list>
 </ion-content>

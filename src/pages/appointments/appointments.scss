@@ -1,9 +1,17 @@
 page-appointments {
-    .date{
-        font-size: 0.88em !important
-    }
  
     ion-item.item{
         margin: 5px 0;
+        background-color: rgba(255,255,255, .6);
+    }
+
+    .date{
+        padding-top: 10px;
+        font-size: .8em;
+    }
+    ion-avatar img{
+        border: 2px solid $secondary;
+        width: 50px !important;
+        height: 50px !important;
     }
 }

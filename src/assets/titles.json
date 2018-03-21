@@ -10,5 +10,6 @@
     { "name":"Driver (Code 14)"  },
     { "name":"Security gaurd"  },
     { "name":"Painter"  },
-    { "name":"Carpenter"  }
+    { "name":"Carpenter"  },
+    { "name":"Other"  }
 ]

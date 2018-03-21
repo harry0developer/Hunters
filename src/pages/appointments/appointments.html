@@ -9,20 +9,17 @@
 
 <ion-content padding>
   <ion-list *ngIf="profile.type == 'Employer'">
-    <!-- <ion-item-divider padding color="light">List of People you requested service from:</ion-item-divider> -->
     <ion-item *ngFor="let user of appointments" tappable (click)="viewUserProfile(user)">
       <ion-avatar item-start>
         <img src="http://placehold.it/200x200">
       </ion-avatar>
       <h2>{{user.firstname}} {{user.lastname}}</h2>
       <p>{{user.title}}</p>
-      <!-- <div item-end> -->
-        <!-- <span class="date">Created on:</span> -->
-        <p> 
-          <ion-icon name="calendar" ></ion-icon>
-          {{getDateFormat(user.last_update)}} 
-        </p>
-      <!-- </div> -->
+      <p class="date"> 
+       <i class="fa fa-calendar"></i> 
+        {{getDateFormat(user.last_update)}} 
+      </p>
+      <ion-icon name="arrow-forward" item-end></ion-icon>
     </ion-item>
     <ion-item *ngIf="!appointments || (appointments && appointments.length < 1)"> 
       <p> You do not have appointments</p>
@@ -30,20 +27,17 @@
   </ion-list> 
 
   <ion-list *ngIf="profile.type == 'Employee'">
-    <!-- <ion-item-divider padding color="light">List of Employers who showed interest in you:</ion-item-divider> -->
     <ion-item *ngFor="let user of appointments" tappable (click)="viewUserProfile(user)">
       <ion-avatar item-start>
         <img src="http://placehold.it/200x200">
       </ion-avatar>
       <h2>{{user.firstname}} {{user.lastname}}</h2>
       <p>{{user.title}}</p>
-      <!-- <div item-end> -->
-        <!-- <span class="date">Created on:</span> -->
-        <p> 
-          <ion-icon name="calendar" ></ion-icon>
-         {{getDateFormat(user.last_update)}} 
-        </p>
-       <!-- </div>  -->
+      <p class="date"> 
+       <i class="fa fa-calendar"></i> 
+        {{getDateFormat(user.last_update)}} 
+      </p>
+      <ion-icon name="arrow-forward" item-end></ion-icon>
     </ion-item>
     <ion-item *ngIf="!appointments || (appointments && appointments.length < 1)"> 
       <p> You do not have appointments</p>

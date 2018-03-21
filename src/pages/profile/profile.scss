@@ -1,7 +1,7 @@
 page-profile {
     .top{
         text-align: center;
-        background-color: #ddd;
+        background-color: $white;
         height: 43%;
     }
     
@@ -14,7 +14,7 @@ page-profile {
         margin: 10px 0 2px 0;
     }
     .top img{
-        border: 4px solid #000;
+        border: 4px solid $secondary;
         padding: 2px;
         width: 100px;
         height: 100px;
@@ -23,11 +23,11 @@ page-profile {
     }
 
    .categories ion-col{
-       background-color: #292929;
-       color: #fff;
+       background-color: $dark;
+       color: $white;
        text-align: center;
        padding: 20px;
-       border: 4px solid #fff;
+       border: 4px solid $white;
    }
 
    .categories ion-col p{
@@ -35,7 +35,8 @@ page-profile {
    }
 
    .list ion-item{
-       background-color: #E4E8E2;
+       background-color: $primary;
+       color: $dark;
        margin: 4px 0 !important;
    }
    .list ion-item i{

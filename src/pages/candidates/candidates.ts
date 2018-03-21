@@ -204,7 +204,7 @@ export class CandidatesPage {
   }
 
   getLastSeen(user){
-    return moment(user.lastSeen, "YYYYMMDD").fromNow();  
+    return moment(user.lastSeen.split(" ")[0], "MMDDYYYY").fromNow();  
   }
   
 }

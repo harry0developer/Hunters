@@ -2,59 +2,41 @@ page-user-details {
     
     .top{
         text-align: center;
-        background-color: #fff;
+        background-color: $white;
         padding-bottom: 30px;
         color: $secondary;
+        p{
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        h2{
+            margin: 10px 0 2px 0;
+        }
+        img{
+            border: 4px solid $secondary;
+            padding: 2px;
+            width: 100px;
+            height: 100px;
+            margin: 40px 0 10px 0;
+            border-radius: 100%;
+        }
     }
     
-    .top p{
-        padding: 0 !important;
-        margin: 0 !important;
-    }
- 
-    .top h2{
-        margin: 10px 0 2px 0;
-    }
-    .top img{
-        border: 4px solid $secondary;
-        padding: 2px;
-        width: 100px;
-        height: 100px;
-        margin: 40px 0 10px 0;
-        border-radius: 100%;
-    }
-  
    .list ion-item{
        background-color: $secondary;
-       color: #fff;
+       color: $white;
        margin: 4px 0 !important;
+       .item-inner{
+           border-bottom: none !important;
+       }
+       i{
+            padding: 10px;
+            width: 60px;
+        }
    }
-   .list ion-item p{
-       color: #ccc;
-   }
+   
    .but .button{
-       background-color: #fff !important;
+       background-color: $white !important;
        color: $secondary;
-   }
-   .list ion-item i{
-        padding: 10px;
-   }
-  
-   ion-list{
-       padding-bottom: 0 !important;
-       margin-bottom: 0 !important;
-   }
-
-   .rating{
-       font-size: 1.2em;
-       padding: 5px;
-   }
-
-   .feedback{
-       text-align: center;
-       font-weight: bold;
-   }
- 
-  
-  
+   }  
 }
