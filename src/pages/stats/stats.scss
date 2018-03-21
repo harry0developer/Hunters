@@ -1,3 +1,15 @@
 page-stats {
+    ion-item.item{
+        margin: 5px 0;
+    }
 
+    .date{
+        padding-top: 10px;
+        font-size: .8em;
+    }
+    ion-avatar img{
+        border: 2px solid $secondary;
+        width: 50px !important;
+        height: 50px !important;
+    }
 }

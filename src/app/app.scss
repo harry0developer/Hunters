@@ -27,26 +27,28 @@
 .con{
     background-color: rgba(36, 36, 36, 0.99);
     text-align: center;
-}
-
-.con p, .con h2{
-    color: #fff;
-    margin: 5px !important;
-    padding: 0 !important;
-}
-
-.con p{
-    font-size: 1.1em;
-    margin-bottom: 30px !important;
-}
-.con h2{
-    font-size: 1.4em;
-}
-
-.con ion-item.item{
-    background: none;
-    color: #fff;
-    font-size: 1.4em;
+    p{
+        font-size: 1.1em;
+        margin-bottom: 30px !important;
+    }
+    h2{
+        font-size: 1.2em;
+    }
+    ion-item.item{
+        background: none;
+        color: #fff;
+    }
+    .item-inner{
+        border-bottom: 1px solid  $white !important;
+    }
+    p{
+        margin: 0 0 10px 0;
+        padding: 0;
+    }
+    h2{
+        margin: 18px 0 0 0 ;
+    }
+    
 }
 
 .extras{
@@ -65,39 +67,10 @@
  
 ion-content.content{
     background-color: $primary;
-}
- 
-
-h2{
-    font-size: 1.2em !important;
-}
+} 
 
 .toolbar-background{
     background-color: $primary !important;
     color: #fff !important;
 }
-
-
-//  .alert-wrapper{
-//     background-color: #E8B911 !important;
-// }
-
- 
-// ion-item.item.item-input, ion-item.item.item-select, ion-item.item.item-datetime{
-//     background-color:transparent;
- 
-// }
-
-// ion-label.label{
-//     color: #fff !important;
-// }
-
-// .btn button{
-//     color: #fff !important;
-// }
- 
-// .original .toolbar-background {
-//     background-color: #E8B911 !important;
-//     color: #fff !important
-// }
  

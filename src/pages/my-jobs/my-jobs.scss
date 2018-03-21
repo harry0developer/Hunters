@@ -2,25 +2,42 @@ page-my-jobs {
  
     .job{
         margin: 10px;
-    } 
-    .job i{
-        margin: 0 !important; 
-    }
-    .job p{
-        font-size: 1em; 
-    }
-  
-    ion-list{
-        margin-bottom: 0 !important;
-    } 
+        ion-list{
+            margin-bottom: 0 !important;
+        } 
+    
+        ion-item-divider.item{
+            background-color: $secondary;
+            text-align: center;
+            p{
+                color: $white;
+                font-size: .8em;
+            }
+        }
+        i{
+            margin: 0 !important; 
+        }
+    
+    }  
 
-    ion-item-divider.item{
-        background-color: $secondary;
-        text-align: center;
-        p{
-            color: $white;
+    .employee{
+        margin: 5px;
+        h2{
+            font-size: 1em !important;
+            display: inline-block
+        }
+        ion-item{
+            margin: 4px auto !important;
+        }
+        ion-thumbnail{
+            width: 40px;
+            height: 40px;
+            img{
+                padding: 10px;
+            }
         }
     }
+  
 
     
 

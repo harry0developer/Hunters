@@ -157,13 +157,12 @@ export class MyJobsPage {
     })
   }
  
- 
-
+  
   jobDetails(job){
     if(this.profile.type == "Employee"){
       this.navCtrl.push(JobDetailsPage, {job:job});
     }else{
-      this.navCtrl.push(StatsPage, {job:job, users: this.users});
+      this.navCtrl.push(StatsPage, {job:job});
     }
   }
  

@@ -18,12 +18,13 @@
   <div [ngSwitch]="stats">
     <div *ngIf="job">
       <ion-list *ngSwitchCase="'views'" >
-        <ion-item *ngFor="let user of job.viewedUsers" >
+        <ion-item *ngFor="let user of job.viewedUsers" (click)="viewAppliedUserDetails(user)">
           <ion-avatar item-start>
             <img src="http://placehold.it/200x200">
           </ion-avatar>
           <h2 *ngIf="user">{{user.firstname}} {{user.lastname}}</h2>
           <p *ngIf="user">{{user.gender}}</p>
+          <ion-icon name="arrow-forward" item-end></ion-icon>
         </ion-item>
         <ion-item text-wrap *ngIf="job && job.viewedUsers.length < 1">
           No user viewed this job yet
@@ -31,12 +32,13 @@
       </ion-list> 
 
       <ion-list *ngSwitchCase="'applied'" >
-        <ion-item *ngFor="let user of job.appliedUsers" >
+        <ion-item *ngFor="let user of job.appliedUsers" (click)="viewAppliedUserDetails(user)">
           <ion-avatar item-start>
             <img src="http://placehold.it/200x200">
           </ion-avatar>
           <h2 *ngIf="user">{{user.firstname}} {{user.lastname}}</h2>
           <p *ngIf="user">{{user.gender}}</p>
+          <ion-icon name="arrow-forward" item-end></ion-icon>
         </ion-item>
         <ion-item text-wrap *ngIf="job && job.appliedUsers.length < 1">
           No user has applied for this job yet

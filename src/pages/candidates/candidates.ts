@@ -188,11 +188,7 @@ export class CandidatesPage {
     });
     return ed;
   }
-
-  getMoment(job){
-    return moment(job.date_created, "YYYYMMDD").fromNow();  
-  }
-
+ 
   doRefresh(refresher) {
     let users = this.dataProvider.refreshUsers();
     this.candidates = users;

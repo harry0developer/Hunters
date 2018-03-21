@@ -12,7 +12,7 @@
 <ion-content> 
 
   <ion-list *ngIf="profile && profile.type == 'Employee'">
-    <div *ngIf="myJobs.length < 1">
+    <div *ngIf="myJobs.length < 1" >
       <ion-item-divider >
         <h2> Applied Jobs</h2>
       </ion-item-divider>
@@ -21,7 +21,7 @@
         <p>All jobs you have applied for will appear and managed here.</p>
       </ion-item>
     </div> 
-    <div *ngIf="myJobs.length > 0">
+    <div class="employee" *ngIf="myJobs.length > 0">
       <ion-item *ngFor="let job of myJobs" tappable (click)="jobDetails(job)">
         <ion-thumbnail item-start>
           <img src="assets/categories/{{job.category}}.svg">
@@ -30,19 +30,19 @@
         <p *ngIf="job">{{job.category}}</p>
         <p *ngIf="job">{{job.type }}</p>
         <ion-icon name="arrow-forward" item-end></ion-icon>
-        
       </ion-item>
     </div>
   </ion-list> 
 
   
-  <ion-list>
-    <div class="job" *ngFor="let job of postedJobs" tappable (click)="jobDetails(job)">
-        <ion-list *ngIf="job" (click)="jobDetails(job)">
+  <ion-list  *ngIf="profile && profile.type == 'Employer'">
+    <div class="job" *ngFor="let job of postedJobs">
+        <ion-list *ngIf="job" (click)="jobDetails(job)" tappable>
           <ion-item>
               <h2 *ngIf="job">{{job.title}}</h2>
               <p *ngIf="job">{{job.category}}</p>
               <p *ngIf="job">{{job.type }}</p>
+              <ion-icon name="arrow-forward" item-end></ion-icon>
           </ion-item>
         </ion-list> 
         <ion-item-divider>

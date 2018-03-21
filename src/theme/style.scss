@@ -2,3 +2,18 @@ $primary : #e8b911;
 $secondary: #cea619;
 $dark: #333;
 $white: #fff;
+
+.item-inner, ion-item{
+    border-bottom: none !important;
+    
+} 
+.item.item-block, ion-item{
+    border-top: none !important;
+}
+
+ion-item{
+    h2{
+        font-size: 1em !important;
+        display: inline-block;
+    } 
+}

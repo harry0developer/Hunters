@@ -33,10 +33,11 @@
       <p>
         <i class="fa fa-venus-mars" item-start></i>
         {{user.gender}}
+        <span class="last-seen" item-end>{{getLastSeen(user)}}</span>
       </p> 
-      <div item-end class="last-seen"> 
+      <!-- <div item-end class="last-seen"> 
         {{getLastSeen(user)}}
-      </div> 
+      </div>  -->
     </ion-item>
     <ion-item text-wrap *ngIf="!candidates || (candidates && candidates.length < 1)">
       <p>No candidates matching that category.</p> 

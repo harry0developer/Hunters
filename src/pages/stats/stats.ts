@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { DataProvider } from '../../providers/data/data';
+import { UserDetailsPage } from '../user-details/user-details';
 
 
 @IonicPage()
@@ -19,7 +20,10 @@ export class StatsPage {
   
   ionViewDidLoad() {
     this.job = this.navParams.get('job'); 
-    console.log(this.job);
+  }
+
+  viewAppliedUserDetails(aUser){ 
+    this.navCtrl.push(UserDetailsPage, {user: aUser});
   }
  
  
