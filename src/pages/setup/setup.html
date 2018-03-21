@@ -12,7 +12,7 @@
             <ion-row class="type">
               <ion-col col-5>
                 <h3><i class="fa fa-briefcase"></i></h3>
-                <button ion-button round block color="dark" (click)="type('Employer')">Employer</button>
+                <button ion-button round block color="dark" (click)="getUserType('Employer')">Employer</button>
                 <p>I provide jobs</p>
               </ion-col>
               <ion-col class="or" col-2>
@@ -22,7 +22,7 @@
               </ion-col>
               <ion-col col-5>
                 <h3><i class="fa fa-user"></i></h3>
-                <button ion-button round block color="dark" (click)="type('Employee')">Candidate</button>
+                <button ion-button round block color="dark" (click)="getUserType('Employee')">Candidate</button>
                 <p>I need a job</p>
               </ion-col>
             </ion-row>
@@ -163,6 +163,14 @@
             <ion-icon name="radio-button-off"></ion-icon>
             <ion-icon name="radio-button-on"></ion-icon>
           </div>
+          <ion-item *ngIf="data.type == 'Employee'">
+            <ion-label ><i class="fa fa-flag" item-start></i>Profession</ion-label>
+            <ion-select [(ngModel)]="data.title" multiple="false">
+              <ion-option *ngFor="let title of titles"> 
+                {{title.name}}
+              </ion-option>
+            </ion-select>
+          </ion-item> 
           <ion-item>
             <ion-label ><i class="fa fa-phone" item-start></i>Phone Number</ion-label>
             <ion-input [(ngModel)]="data.phone" type="text"></ion-input>

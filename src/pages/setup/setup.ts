@@ -14,7 +14,7 @@ import { User } from '../../interface/user';
 export class SetupPage {
   @ViewChild(Slides) slides: Slides; 
  
-  data: any = {firstname: "", lastname:"", email:"", password:"", gender:"", race:"",
+  data: any = {firstname: "", lastname:"", email:"", password:"", gender:"", race:"", title: "",
   nationality:"", dob:"", phone:"", date_created:"", lastSeen:"", type:"", status:""}; 
   
   nationalities: any;
@@ -73,6 +73,11 @@ export class SetupPage {
     this.data.date_created = this.dataProvider.getDate();
     this.data.nationality = this.data.nationality.trim();
     this.data.status = "Active";
+    if(this.data.type == 'Employer'){
+      this.data.title = "Recruiter";
+    }else{
+      this.data.title = this.data.title.trim();
+    }
     console.log(this.data);
     this.dataProvider.postData(this.data, "signup").then((result) => {
       res = result;
@@ -84,7 +89,7 @@ export class SetupPage {
         console.log(res.data);
         localStorage.setItem('user', JSON.stringify(res.data));
         this.ionEvents.publish("user:loggedIn", res.data);
-        if(res.data.type == 'Employee'){
+        if(res.data.type == 'Employer'){
           this.navCtrl.setRoot(CandidatesPage);
         }else{
           this.navCtrl.setRoot(JobsPage);
@@ -105,9 +110,9 @@ export class SetupPage {
       tc.present();
   }
 
-  type(type){
+  getUserType(type){
     this.data.type = type;
     this.goNext();
-
   }
+  
 }
