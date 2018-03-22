@@ -119,11 +119,22 @@ export class MyJobsPage {
       });
       if(aJobs){
         aJobs.forEach(aUser => {
-         this.users.forEach(user => {
-            if(aUser.user_id_fk == user.user_id){
-              users.push(user);
-            }
-         });
+          if(this.users){
+            this.users.forEach(user => {
+              if(aUser.user_id_fk == user.user_id){
+                users.push(user);
+              }
+            });
+          }else{
+            this.dataProvider.loadUsers().then(res => {
+              this.users = res;
+              this.users.forEach(user => {
+                if(aUser.user_id_fk == user.user_id){
+                  users.push(user);
+                }
+              });
+            })
+          }
         });
       }
       job.appliedUsers = users;

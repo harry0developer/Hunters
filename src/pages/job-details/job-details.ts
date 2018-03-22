@@ -43,6 +43,7 @@ export class JobDetailsPage {
 
 
   applyNow(job, emp){
+    this.dataProvider.presentLoading("Please wait...");
     let data = {
       user_id_fk: this.profile.user_id,
       job_id_fk: job.job_id, 
@@ -50,17 +51,21 @@ export class JobDetailsPage {
       date_applied: new Date()
     }
     this.dataProvider.postData(data, 'addJobToApplicants').then(res => {
+      this.dataProvider.dismissLoading();
       let results;
       results = res;
       if(results && results.data){
         this.dataProvider.appliedJobs = null;
         this.ionEvent.publish("user:applied", results.data);
+        this.dataProvider.presentToast("You have successfully applied for this job");
         this.hasApplied();
         console.log(res);
       }else{
+        this.dataProvider.presentToast("Oops, Something went wrong");
         console.log(res);
       }
     }).catch(err => {
+      this.dataProvider.dismissLoading();
       console.log(err);
     })
   }
@@ -76,12 +81,14 @@ export class JobDetailsPage {
   }
 
   withdrawApplication(job){
+    this.dataProvider.presentLoading("Please wait...");
     let data = { 
       user_id_fk: this.profile.user_id,
       employer_id_fk: job.user_id_fk,
       job_id_fk: job.job_id
     }
     this.dataProvider.postData(data, 'removeJobFromApplicants').then(res => {
+      this.dataProvider.dismissLoading();
       let results;
       results = res;
       let arr = {};
@@ -90,11 +97,13 @@ export class JobDetailsPage {
         this.ionEvent.publish("user:applied", results.data);
         this.countAppliedUsers(results.data);
         this.applied = !this.applied;
+        this.dataProvider.presentToast("Your application has been removed successfully");
       } 
       else{ 
           console.log(res);
       }
     }).catch(err => {
+      this.dataProvider.dismissLoading();
       console.log(err);
     })
   }

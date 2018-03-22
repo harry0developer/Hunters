@@ -21,19 +21,14 @@ export class UserMoreDetailsPage {
     this.init();
   }
 
-  ionViewDidLoad() {
-    
-
-  }
+  ionViewDidLoad() { }
 
   init(){
     this.category = this.navParams.get('category');
     this.user = this.navParams.get('user');
     this.skills = this.navParams.get('skills');
     this.experience = this.navParams.get('experience');
-    this.education = this.navParams.get('education');
-
-    console.log(this.skills);
+    this.education = this.navParams.get('education'); 
   }
 
   dismiss() {

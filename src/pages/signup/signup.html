@@ -12,16 +12,16 @@
   </ion-grid>
   <ion-list no-lines>
     <ion-item>
-      <ion-label><i class="fa fa-envelope" item-start></i>Email</ion-label>
-      <ion-input type="email" [(ngModel)]="data.email"></ion-input>
+      <!-- <ion-label><i class="fa fa-envelope" item-start></i>Email</ion-label> -->
+      <ion-input type="email" placeholder="&#xf0e0; Email address" style="font-family:Arial, FontAwesome"  [(ngModel)]="data.email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label><i class="fa fa-lock" item-start></i>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="data.password"></ion-input>
+      <!-- <ion-label><i class="fa fa-lock" item-start></i>Password</ion-label> -->
+      <ion-input type="password" placeholder="&#xf023; New Password" style="font-family:Arial, FontAwesome"  [(ngModel)]="data.password"></ion-input>
     </ion-item>
     <ion-item> 
-      <ion-label><i class="fa fa-lock" item-start></i>Confirm password</ion-label>
-      <ion-input type="password" [(ngModel)]="data.cpassword"></ion-input>
+      <!-- <ion-label><i class="fa fa-lock" item-start></i>Confirm password</ion-label> -->
+      <ion-input type="password" placeholder="&#xf023; Confirm Password" style="font-family:Arial, FontAwesome"  [(ngModel)]="data.cpassword"></ion-input>
     </ion-item>
   </ion-list>
   <button ion-button block round color="dark"  (click)="sendOTP()">Verify Email Adddress</button>

@@ -1,31 +1,18 @@
 page-post-jobs {
-
-    .offer{
-        border: 2px solid #000;
-    }
-    ion-row.details_row ion-label{
-        margin: 0 !important;
+    .address {
+        height: 80px;
     }
 
-    .currency{
-        font-size: 1.2em;
-        font-weight: bold;
-        padding-left: 27px;
-        color: #201E1E;
-        padding-top: 30px;
-    }
- 
-    ion-col.salary ion-item{
-        padding-left: -2px;
+    ion-item.item-select{
+        height: 70px;;
     }
 
-    .item-textarea{
-        margin: 5px;
-    }
-
-    .frequency{
-        height: 85px;
-    }
+    .but {
+        padding-top: 0 !important;
+        margin: 0 10px;
+        // .button{
+        //      background-color: $white !important;
+        //      color: $secondary;
+        // }
+    }  
 }
-
-

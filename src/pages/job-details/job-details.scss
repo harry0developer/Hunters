@@ -2,14 +2,6 @@
 .ios, .md {
   page-job-details{
 
-    .scroll {
-      height: 100%
-    }
- 
-    ion-item-divider{
-      font-size: 1.6em;
-      color: #292929;
-    } 
 
     ion-item.item{
       margin: 5px 0;
@@ -37,19 +29,20 @@
     }
     .banner h2{
       margin: 5px 0;
+      font-weight: bold;
     }
     .banner p{
       margin: 0;
     }
 
     h2{
-      font-weight: bold;
-      font-size: 1.4em !important;
+      font-size: 1em !important;
+      display: block;
     }
 
     .info p{
-      font-weight: normal;
-      font-size: 1em;
+      font-size: 0.8em;
     }
+
   }
 }

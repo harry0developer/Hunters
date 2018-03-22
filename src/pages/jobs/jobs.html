@@ -53,7 +53,9 @@
       </div> 
     </ion-list-header>
   </div>
-  <ion-item text-wrap no-lines *ngIf="!jobs || jobs.length < 1">
+  <div *ngIf="!jobs || jobs.length < 1" class="no-match">
+    <ion-item text-wrap no-lines>
       <h2>No jobs found matching this category</h2>
-  </ion-item>
+    </ion-item>
+  </div>
 </ion-content>

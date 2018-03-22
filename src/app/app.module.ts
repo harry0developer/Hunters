@@ -14,7 +14,6 @@ import { LoginPage } from '../pages/login/login';
 import { MyJobsPage } from '../pages/my-jobs/my-jobs';
 import { OtpPage } from '../pages/otp/otp';
 import { PostJobsPage } from '../pages/post-jobs/post-jobs';
-import { ProfilePage } from '../pages/profile/profile'; 
 import { SettingsPage } from '../pages/settings/settings';
 import { SignupPage } from '../pages/signup/signup';
 import { StatsPage } from '../pages/stats/stats';
@@ -32,7 +31,6 @@ import { SocialSharing } from '@ionic-native/social-sharing';
   declarations: [
     MyApp,
     AppointmentsPage,
-    ProfilePage, 
     FilterPage,
     UserDetailsPage,
     UserMoreDetailsPage,
@@ -61,7 +59,6 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 
     MyApp,
     AppointmentsPage,
-    ProfilePage,
     FilterPage,
     UserDetailsPage,
     UserMoreDetailsPage,

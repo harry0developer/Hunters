@@ -1,6 +1,14 @@
 <ion-header>
   <ion-navbar color="dark"> 
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Profile</ion-title>
+    <ion-buttons [hidden]="page === 'Candidates'" end> 
+      <button ion-button icon-only (click)="editProfile()">
+        <ion-icon name="create"></ion-icon>
+      </button>  
+    </ion-buttons> 
   </ion-navbar>
 </ion-header>
 
@@ -11,43 +19,40 @@
     <p>{{user.title}}</p>  
   </div>
   <ion-list *ngIf="user" class="info" padding>
-    <ion-item (click)="loadUserMoreDetails('Personal info')">
-        <i class="fa fa-2x fa-user" item-start></i>
-        <h2>Personal info</h2>
-        <p>Learn more</p>
-        <i class="fa fa-info-circle" item-end></i>
+    <ion-item text-wrap>
+      <i class="fa fa-user" item-start></i>
+      <p>{{user.firstname}} {{user.lastname}}</p>
     </ion-item>
-    
-    <ion-item *ngIf="education" (click)="loadUserMoreDetails('Education')">
-        <i class="fa fa-2x fa-graduation-cap" item-start></i>
-        <h2>Educatiion</h2>
-        <p>{{education.length > 1 ? education.length+' Qualifications': education.length+' Qualification'}} </p>
-        <i class="fa fa-info-circle" item-end></i>
+    <ion-item text-wrap>
+      <i class="fa fa-calendar" item-start></i>
+      <p>{{user.dob}}</p>
     </ion-item>
-
-    <ion-item *ngIf="experience" (click)="loadUserMoreDetails('Experience')">
-      <i class="fa fa-2x fa-briefcase" item-start></i>
-      <h2>Experience</h2>
-      <p>{{experience.length > 1 ? experience.length+' Positions' : experience.length+' Position'}} </p>
-      <i class="fa fa-info-circle" item-end></i>
+    <ion-item text-wrap>
+      <i class="fa fa-flag" item-start></i>
+      <p>{{user.nationality}}</p>
     </ion-item>
-<!-- 
-    <ion-item *ngIf="skills" (click)="loadUserMoreDetails('Skills')">
-      <i class="fa fa-2x fa-balance-scale" item-start></i>
-      <h2>Skills</h2>
-      <p>{{skills.length > 1 ? skills.length+' Skills' : skills.length+' Skill'}} </p>
-      <i class="fa fa-info-circle" item-end></i>
-    </ion-item> -->
-
+    <ion-item text-wrap>
+      <i class="fa fa-transgender" item-start></i>
+      <p>{{user.gender}}</p>
+    </ion-item>
+    <ion-item text-wrap>
+      <i class="fa fa-phone" item-start></i>
+      <p>{{user.phone}}</p>
+    </ion-item>
+    <ion-item text-wrap>
+      <i class="fa fa-map-marker" item-start></i>
+      <p>{{user.address}}</p>
+    </ion-item>
   </ion-list>
 
-     
-  <div padding class="but" [hidden]="applied">
-    <button ion-button color="dark" block (click)="offerUserEmployment(user)">Offer Employement</button>
-  </div>
-
-  <div padding class="but" [hidden]="!applied">
-    <button ion-button color="dark" block (click)="removeUserEmployment(user)">Withdraw Application</button>
+  <div [hidden]="page === 'Employer'">
+    <div padding class="but" [hidden]="applied">
+      <button ion-button color="dark" block (click)="offerUserEmployment(user)">Offer Employement</button>
+    </div>
+    
+    <div padding class="but" [hidden]="!applied">
+      <button ion-button color="dark" block (click)="removeUserEmployment(user)">Withdraw Application</button>
+    </div>
   </div>
  
 </ion-content>

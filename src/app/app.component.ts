@@ -2,9 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { JobsPage } from '../pages/jobs/jobs';
-import { ProfilePage } from '../pages/profile/profile';
 import { AppointmentsPage } from '../pages/appointments/appointments';
 import { SettingsPage } from '../pages/settings/settings';
 import { TermsPage } from '../pages/terms/terms';
@@ -12,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { SetupPage } from '../pages/setup/setup';
 import { MyJobsPage } from '../pages/my-jobs/my-jobs'; 
 import { CandidatesPage } from '../pages/candidates/candidates';
+import { UserDetailsPage } from '../pages/user-details/user-details';
 
 @Component({
   templateUrl: 'app.html'
@@ -35,7 +34,7 @@ export class MyApp {
     this.pages2 = {
       jobsPage: JobsPage,
       candidatesPage:CandidatesPage,
-      profilePage: ProfilePage,
+      profilePage: UserDetailsPage,
       appointmentPage: AppointmentsPage,
       myJobsPage: MyJobsPage,
       settingsPage: SettingsPage,

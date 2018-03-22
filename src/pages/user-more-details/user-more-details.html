@@ -13,7 +13,7 @@
 
 <ion-content>
   <!-- Personal Info -->
-    <ion-list no-lines class="info" *ngIf="user && category == 'Personal info'"> 
+    <ion-list class="personal" *ngIf="user && category == 'Personal info'"> 
 
       <div class="top_icon">
         <i class="fa fa-4x fa-user"></i>
@@ -26,40 +26,40 @@
         <ion-item text-wrap>
           <p>{{user.bio}}</p>
         </ion-item> 
-        <ion-grid>
+        <!-- <ion-grid>
           <ion-row>
-            <ion-col>
+            <ion-col> -->
               <ion-item text-wrap>
                 <i class="fa fa-user" item-start></i>
                 <p>{{user.firstname}} {{user.lastname}}</p>
               </ion-item>
-            </ion-col>
-            <ion-col>
+            <!-- </ion-col>
+            <ion-col> -->
               <ion-item text-wrap>
                 <i class="fa fa-calendar" item-start></i>
                 <p>{{user.dob}}</p>
               </ion-item>
-            </ion-col>
+            <!-- </ion-col>
           </ion-row>
-        </ion-grid>
+        </ion-grid> -->
         
-        <ion-grid>
+        <!-- <ion-grid>
           <ion-row>
-            <ion-col>
+            <ion-col> -->
               <ion-item text-wrap>
                 <i class="fa fa-flag" item-start></i>
                 <p>{{user.nationality}}</p>
               </ion-item>
-            </ion-col>
-            <ion-col>
+            <!-- </ion-col>
+            <ion-col> -->
               <ion-item text-wrap>
                 <i class="fa fa-transgender" item-start></i>
                 <p>{{user.gender}}</p>
               </ion-item>
-            </ion-col>
+            <!-- </ion-col>
           </ion-row>
         </ion-grid> 
-         
+          -->
         <ion-item text-wrap>
           <i class="fa fa-map-marker" item-start></i>
           <p>{{user.address}}</p>
@@ -102,7 +102,7 @@
         <!-- User Info End -->
 
     <!-- Education info -->
-    <ion-list no-lines *ngIf="education && category == 'Education'">
+    <ion-list *ngIf="education && category == 'Education'">
       <div class="top_icon">
         <i class="fa fa-4x fa-graduation-cap"></i>
       </div>

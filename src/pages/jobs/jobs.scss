@@ -2,13 +2,17 @@ page-jobs {
 
     .job{
         margin: 10px;
-    } 
-    .job i{
-        margin: 0 !important; 
+        i{
+            margin: 0 !important; 
+        } 
+        p{
+            font-size: 1em; 
+        }
     }
-    .job p{
-        font-size: 1em; 
+    .no-match{
+        margin: 10px;
     }
+
  
     ion-thumbnail img{
         padding: 10%;

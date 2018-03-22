@@ -1,7 +1,5 @@
 [
-   
-   
-
+      
     {
         "name": "Builder",
         "skills": [
@@ -119,10 +117,10 @@
             "Welding",
             "Cutting"
         ]
-    },
+    }, 
     {
         "name": "Other",
-        "skills": []
+        "skills": ["Personal service", "MC"]
     }
     
 ]

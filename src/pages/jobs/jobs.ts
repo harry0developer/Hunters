@@ -44,16 +44,12 @@ export class JobsPage {
   ionViewDidLoad() {
     this.init()
     this.getJobs();
-    
     this.profile = JSON.parse(localStorage.getItem('user'));
     this.setFilteredJobs();
     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
       this.searching = false;
       this.setFilteredJobs();
     });
-
-
-
   }
 
   init() {
@@ -96,7 +92,6 @@ export class JobsPage {
     postModal.present();
   }
 
-
   getJobs() {
     this.dataProvider.loadJobs().then(res => {
       this.jobs = res;
@@ -125,25 +120,19 @@ export class JobsPage {
     this.navCtrl.push(JobDetailsPage, { job: job, user: this.profile });
   }
 
-
-
   doRefresh(refresher) {
     let jobs = this.dataProvider.refreshJobs();
     this.jobs = jobs;
     refresher.complete();
   }
 
-
   onSearchInput() {
     this.searching = true;
   }
 
-
   share(job) {
-    // console.log("Sahre")
     this.dataProvider.shareActionSheet(job);
   }
-
 
   applyEmployeeFilter() {
     this.jobs = this.tmpJobs;
