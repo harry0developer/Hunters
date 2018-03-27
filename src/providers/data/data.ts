@@ -9,7 +9,7 @@ import * as moment from 'moment';
 // let apiUrl = 'http://moralemedia.co.za/eventon/api/';
 // let uploads = 'http://moralemedia.co.za/eventon/api/uploads/';
 let apiUrl = 'http://localhost/Hunters/api/';
-// let uploads = 'http://localhost/Hunters/api/uploads/';
+let uploads = 'http://localhost/Hunters/api/uploads';
 
 @Injectable()
 export class DataProvider {
@@ -51,6 +51,10 @@ export class DataProvider {
     }
     
  
+  getMediaLink(){
+    return this.uploads;
+  }
+  
   loadUsers() {
     if (this.users) {
       return Promise.resolve(this.users);

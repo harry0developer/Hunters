@@ -2,8 +2,9 @@
   <ion-content class="con">
     <div *ngIf="profile">
       <img src="http://placehold.it/100x100" alt="" class="profile">
-      <h2>{{profile.firstname}} {{profile.lastname}}</h2>
-     <p>{{profile.type == 'Employee' ? "Candidate" : "Recruiter"}}</p> 
+      <h2>{{profile.firstname}}</h2>
+      <p>{{profile.lastname}}</p> 
+        <!-- <p>{{profile.type == 'Employee' ? "Candidate" : "Recruiter"}}</p>  -->
      <!-- <p>{{profile.lastSeen}} -->
     </div>
     <ion-list *ngIf="profile">

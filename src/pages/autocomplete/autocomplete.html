@@ -12,7 +12,7 @@
   [showCancelButton]="true" 
   (ionInput)="updateSearch()" 
   (ionCancel)="dismiss()"
-  autofocus
+  (ionFocus)="true"
   ></ion-searchbar>
 </ion-header>
 
@@ -22,5 +22,9 @@
     <ion-item *ngFor="let item of autocompleteItems" tappable (click)="chooseItem(item)">
       <ion-label><i class="fa fa-map-pin" item-start></i>{{ item }}</ion-label>
     </ion-item>
+  </ion-list>
+
+  <ion-list padding *ngIf="!autocompleteItems || autocompleteItems.length < 1">
+    <ion-item text-warp>Start typing the address...</ion-item>
   </ion-list>
 </ion-content>

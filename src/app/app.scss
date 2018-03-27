@@ -16,14 +16,7 @@
 // automatically applied to the <body> element in the app.
 //#009688
 @import '../theme/style';
- 
-.profile{
-    border: 4px solid #fff;
-    border-radius: 100%;
-    width: 120px;
-    margin: 50px 60px 0 60px;
-}
- 
+
 .con{
     background-color: rgba(36, 36, 36, 0.99);
     text-align: center;
@@ -74,3 +67,17 @@ ion-content.content{
     color: #fff !important;
 }
  
+.profile{
+    border: 4px solid #fff;
+    border-radius: 100%;
+    width: 120px;
+    margin: 50px 60px 0 60px;
+    h2{
+        font-size: 1.2em;
+        color: $grey;
+    }
+    p{
+        font-size: 0.9em;
+        color: $grey;
+    }
+}

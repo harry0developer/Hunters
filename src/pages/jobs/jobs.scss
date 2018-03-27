@@ -8,6 +8,11 @@ page-jobs {
         p{
             font-size: 1em; 
         }
+        .title {
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
     .no-match{
         margin: 10px;

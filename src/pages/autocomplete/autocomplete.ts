@@ -24,7 +24,7 @@ export class AutocompletePage {
   }
 
   dismiss() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss(null);
   }
 
   chooseItem(item: any) {

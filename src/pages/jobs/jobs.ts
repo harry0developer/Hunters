@@ -77,7 +77,7 @@ export class JobsPage {
   }
 
   getMoment(job) {
-    return moment(job.date_created, "YYYYMMDD").fromNow();
+    return moment(job.date_created, "MMDDYYYY h:mm").fromNow();
   }
 
   postJob() {

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Events } from 'ionic-angular';
-import { UserMoreDetailsPage } from '../user-more-details/user-more-details';
 import { DataProvider } from '../../providers/data/data';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,10 +14,10 @@ export class UserDetailsPage {
   user: any; //current viewed profile
   page: string;
   ratings: any; 
-  applied: boolean;
+  applied: boolean; 
   
-  constructor(public navCtrl: NavController, public dataProvider: DataProvider, public ionEvents: Events,
-    public modalCtrl: ModalController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public dataProvider: DataProvider,
+    public ionEvents: Events, public navParams: NavParams) {
   }
 
   ionViewDidLoad() { 

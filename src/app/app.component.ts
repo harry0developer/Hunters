@@ -12,6 +12,8 @@ import { MyJobsPage } from '../pages/my-jobs/my-jobs';
 import { CandidatesPage } from '../pages/candidates/candidates';
 import { UserDetailsPage } from '../pages/user-details/user-details';
 
+import { ProfilePage } from '../pages/profile/profile';
+
 @Component({
   templateUrl: 'app.html'
 })

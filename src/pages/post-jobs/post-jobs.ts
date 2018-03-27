@@ -68,11 +68,12 @@ export class PostJobsPage {
 
   showAddressModal () {
     let modal = this.modalCtrl.create(AutocompletePage);
-    let me = this;
     modal.onDidDismiss(data => {
-      this.data.address = data.address;
-      this.data.lat = data.lat;
-      this.data.lng = data.lng;
+      if(data){
+        this.data.address = data.address;
+        this.data.lat = data.lat;
+        this.data.lng = data.lng;
+      }
     });
     modal.present();
   }  

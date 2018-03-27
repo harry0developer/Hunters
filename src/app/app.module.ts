@@ -20,20 +20,28 @@ import { StatsPage } from '../pages/stats/stats';
 import { SetupPage } from '../pages/setup/setup';
 import { TermsPage } from '../pages/terms/terms';
 import { UserDetailsPage } from '../pages/user-details/user-details';
-import { UserMoreDetailsPage } from '../pages/user-more-details/user-more-details';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { ProfilePage } from '../pages/profile/profile';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
 import { HttpModule } from '@angular/http';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SocialSharing } from '@ionic-native/social-sharing';
+
+import { File } from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+
 @NgModule({
   declarations: [
     MyApp,
     AppointmentsPage,
     FilterPage,
     UserDetailsPage,
-    UserMoreDetailsPage,
+    EditProfilePage,
     AddSkillsPage,
     LoginPage,
     SignupPage,
@@ -47,6 +55,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     MyJobsPage,
     SetupPage,
     CandidatesPage,
+    ProfilePage,
     JobsPage, 
   ],
   imports: [
@@ -61,7 +70,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     AppointmentsPage,
     FilterPage,
     UserDetailsPage,
-    UserMoreDetailsPage,
+    EditProfilePage,
     AddSkillsPage,
     LoginPage,
     SignupPage,
@@ -75,6 +84,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     MyJobsPage,
     SetupPage,
     CandidatesPage,
+    ProfilePage,
     JobsPage,
   ],
   providers: [
@@ -83,6 +93,10 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,
     Geolocation,
+    File,
+    FileTransfer,
+    Camera,
+    FilePath,
     SocialSharing,
   ]
 })
