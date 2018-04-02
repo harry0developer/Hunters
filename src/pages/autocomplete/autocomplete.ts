@@ -58,7 +58,6 @@ export class AutocompletePage {
    });
   }
 
-  //convert Address string to lat and long
   geoCode(address:any) {
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, (results, status) => {
@@ -67,4 +66,5 @@ export class AutocompletePage {
     this.viewCtrl.dismiss({address: address, lat: this.latitude, lng: this.longitude});
    });
  }
+
 }

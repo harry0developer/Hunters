@@ -1,38 +1,34 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
- 
 
 @IonicPage()
 @Component({
-  selector: 'page-filter',
-  templateUrl: 'filter.html',
+  selector: 'page-filter-candidates',
+  templateUrl: 'filter-candidates.html',
 })
-export class FilterPage {
-  type: any;
+export class FilterCandidatesPage {
   filter: any;
-  page: string;
   categories: any;
-
-  settings: any = {distance: 0, type: '' };
-  salary: any = {lower: 500, upper: 4000};
-  constructor(public navCtrl: NavController, public dataProvider: DataProvider,public navParams: NavParams, public viewCtrl: ViewController) {
+  settings: any = {distance: 0, title: '' };
+  constructor(public navCtrl: NavController, public dataProvider: DataProvider, public viewCtrl: ViewController, public navParams: NavParams) {
   }
 
+
   ionViewDidLoad(){
+    this.dataProvider.getCategories().then(res => {
+      this.categories = res;
+    });
+    
     this.filter = this.navParams.get('filter');
     if(!this.filter){
       this.filter = JSON.parse(localStorage.getItem('filter'));
     }
-
-    if(this.filter != null && this.filter.salary){
+    if(this.filter){
       this.settings.distance = this.filter.distance;
-      this.settings.type = this.filter.type;
-      this.salary.lower = this.filter.salary.lower;
-      this.salary.upper = this.filter.salary.upper;
+      this.settings.title = this.filter.title;
     }else{
       this.settings.distance = 0;
-      this.salary = {lower: 0, upper: 4000};
     }
   }
 
@@ -40,15 +36,10 @@ export class FilterPage {
     this.viewCtrl.dismiss(this.filter);
   } 
 
-  selectCategory(cat){
-    this.viewCtrl.dismiss(cat.name);
-  }
-
   applyFilter(){
     const data = {
       distance: this.settings.distance,
-      type: this.settings.type,
-      salary: this.salary,
+      title: this.settings.title,
     }
     this.viewCtrl.dismiss(data);
   }
@@ -56,5 +47,4 @@ export class FilterPage {
   clearFilter(){
     this.viewCtrl.dismiss(null);
   }
-
 }

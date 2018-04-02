@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { AutocompletePage } from '../autocomplete/autocomplete';

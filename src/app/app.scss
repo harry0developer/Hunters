@@ -68,16 +68,20 @@ ion-content.content{
 }
  
 .profile{
-    border: 4px solid #fff;
-    border-radius: 100%;
-    width: 120px;
-    margin: 50px 60px 0 60px;
+    margin: 10% 0;
+    img{
+
+        border: 4px solid #fff;
+        border-radius: 100%;
+        width: 120px;
+        margin: 50px 60px 0 60px;
+    }
     h2{
         font-size: 1.2em;
-        color: $grey;
+        color: $dark;
     }
     p{
         font-size: 0.9em;
-        color: $grey;
+        color: $dark;
     }
 }

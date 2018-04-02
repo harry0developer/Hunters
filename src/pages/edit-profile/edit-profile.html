@@ -1,27 +1,29 @@
 <ion-header>
-  <ion-navbar color="dark">
+  <ion-navbar color="dark"> 
     <ion-title>Edit Profile</ion-title>
-    <ion-buttons end>
-        <button ion-button (click)="dismiss()">
-          Close
-        </button>
-    </ion-buttons>
+    <ion-buttons end> 
+      <button ion-button (click)="dismiss()">
+        Cancel
+      </button>  
+    </ion-buttons> 
   </ion-navbar>
 </ion-header>
 
+<ion-content>
+  <ion-list *ngIf="user" padding>
+    <ion-item>
+      <i class="fa fa-phone" item-start></i>
+      <ion-input [(ngModel)]="data.phone" placeholder="Phone number" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <i class="fa fa-map-marker" item-start></i>
+      <ion-input (ionFocus)="showAddressModal()" [(ngModel)]="data.address" placeholder="Home address" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
 
-<ion-content> 
-    <ion-list *ngIf="user" class="info" padding>
-      <ion-item text-wrap>
-          <ion-input [(ngModel)]="user.address"  placeholder="&#xf0e0; Update Address" style="font-family:SansCaption, FontAwesome" type="text">
-          </ion-input>
-      </ion-item>
-
-      <ion-item text-wrap>
-          <ion-input [(ngModel)]="user.phone"  placeholder="&#xf0e0; Update Phone number" style="font-family:SansCaption, FontAwesome" type="text">
-          </ion-input>
-      </ion-item>
-       
-    </ion-list>
+  <div padding class="but">
+    <button ion-button color="dark" block (click)="updateDetails()">Update Details</button>
+  </div>
+ 
 </ion-content>
     

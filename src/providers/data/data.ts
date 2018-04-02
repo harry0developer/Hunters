@@ -9,7 +9,7 @@ import * as moment from 'moment';
 // let apiUrl = 'http://moralemedia.co.za/eventon/api/';
 // let uploads = 'http://moralemedia.co.za/eventon/api/uploads/';
 let apiUrl = 'http://localhost/Hunters/api/';
-let uploads = 'http://localhost/Hunters/api/uploads';
+// let uploads = 'http://localhost/Hunters/api/uploads';
 
 @Injectable()
 export class DataProvider {
@@ -33,6 +33,8 @@ export class DataProvider {
   ratings: any;
   viewedJobs: any;
   categories: any;
+  KM: number =  1.60934;
+  location: any = {lat: "", lng:""};
   constructor(public http: Http, public loadingCtrl: LoadingController, public events: Events,
     public alertCtrl: AlertController, public toastCtrl: ToastController, 
     private actionSheetCtrl: ActionSheetController, private geolocation: Geolocation ) {
@@ -69,9 +71,6 @@ export class DataProvider {
         });
     });
   }
-
- 
-
 
   loadSkills() {
     if (this.skills) {
@@ -271,30 +270,29 @@ export class DataProvider {
         });
     });
   }
- 
-
-  getLocation(){
-    this.geolocation.getCurrentPosition().then((resp) => {
-      // resp.coords.latitude
-      // resp.coords.longitude
-     }).catch((error) => {
-       console.log('Error getting location', error);
-     });
-     
-     let watch = this.geolocation.watchPosition();
-     watch.subscribe((data) => {
-      // data can be a set of coordinates, or an error (if an error occurred).
-      // data.coords.latitude
-      // data.coords.longitude
-     });
-  }
 
   refreshUsers(){ 
-    return this.users;
+    return new Promise(resolve => {
+      let headers = new Headers();
+      this.http.post(apiUrl + 'getUsers', null ,{headers: headers})
+        .map(res => res.json())
+        .subscribe(data => {
+          this.users = data.data;
+          resolve(this.users);
+        });
+    });
   }
   
   refreshJobs(){ 
-    return this.jobs;
+    return new Promise(resolve => {
+      let headers = new Headers();
+      this.http.post(apiUrl + 'getJobs', null ,{headers: headers})
+        .map(res => res.json())
+        .subscribe(data => {
+          this.jobs = data.data;
+          resolve(this.jobs);
+        });
+    });
   }
 
   postData(credentials, type) {
@@ -446,6 +444,10 @@ export class DataProvider {
     this.loadSpinner.dismiss();
   }
 
+  calculateDistance(job){
+    console.log(job);
+  }
+
 
   shareActionSheet(job) {
     let actionSheet = this.actionSheetCtrl.create({
@@ -489,5 +491,90 @@ export class DataProvider {
     var date = moment.now();
     return moment(date).format("MM/DD/YYYY HH:mm");
   }
- 
+
+
+  applyHaversine(jobs, lat, lng){
+    let usersLocation = {
+        lat: lat, 
+        lng: lng
+    };
+    jobs.map((location) => {
+      let placeLocation = {
+          lat: location.lat,
+          lng: location.lng
+      };
+      location.distance = this.getDistanceBetweenPoints(
+          usersLocation,
+          placeLocation,
+          'miles'
+      ).toFixed(0);
+    });
+    return jobs;
+  }
+
+  getDistanceBetweenPoints(start, end, units){
+    let earthRadius = {
+        miles: 3958.8,
+        km: 6371
+    };
+
+    let R = earthRadius[units || 'miles'];
+    let lat1 = start.lat;
+    let lon1 = start.lng;
+    let lat2 = end.lat;
+    let lon2 = end.lng;
+
+    let dLat = this.toRad((lat2 - lat1));
+    let dLon = this.toRad((lon2 - lon1));
+    let a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(this.toRad(lat1)) * Math.cos(this.toRad(lat2)) *
+    Math.sin(dLon / 2) *
+    Math.sin(dLon / 2);
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    let d = R * c;
+
+    return   d * this.KM ; //convert miles to km
+
+  }
+
+  toRad(x){
+      return x * Math.PI / 180;
+  }
+
+  sortByDistance(data){
+    if(data){
+      return data.sort(function (a, b) {
+        return a.distance - b.distance;
+      });
+    }else{
+      return [];
+    }
+  }
+
+  getLocation(){
+    this.presentLoading("Getting your location, Please wait...");
+    const options = {
+      timeout: 10000,
+      enableHighAccuracy: true
+    };
+    let location: any;
+    this.geolocation.getCurrentPosition(options).then((resp) => {
+      location = {lat:resp.coords.latitude, lng: resp.coords.longitude};
+      localStorage.setItem("location", JSON.stringify(location));
+      this.location = location;
+      this.events.publish('location:set', location);
+      this.dismissLoading();
+    }).catch((error) => {
+      location = JSON.parse(localStorage.getItem('location'));
+      console.log('Error getting location', error);
+      this.location = location;
+      this.events.publish('location:set', location);
+      this.dismissLoading();
+    }); 
+  }
+
+  getLatLng(){
+    return this.location;
+  }
+
 }

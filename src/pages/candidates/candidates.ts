@@ -5,8 +5,10 @@ import { FormControl } from '@angular/forms';
 import { FilterPage } from '../filter/filter';
 import { UserDetailsPage } from '../user-details/user-details';
 import { DataProvider } from '../../providers/data/data';
-import 'rxjs/add/operator/debounceTime';
-import * as moment from 'moment';
+// import 'rxjs/add/operator/debounceTime';
+// import * as moment from 'moment';
+import { PostJobsPage } from '../post-jobs/post-jobs';
+import { FilterCandidatesPage } from '../filter-candidates/filter-candidates';
 
 
 @IonicPage()
@@ -36,16 +38,24 @@ export class CandidatesPage {
   
   displayJobsSearch: boolean = false;
   displayUsersSearch: boolean = false;
-
+  filter: any;
+  jobs: any;
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public events: Events,
     public navParams: NavParams, public dataProvider: DataProvider) {
     this.searchControl = new FormControl();
-    this.init()
   }
   
   
   ionViewDidLoad() {  
     this.profile = JSON.parse(localStorage.getItem('user')); 
+    this.events.subscribe('location:set', location => {
+      this.dataProvider.loadUsers().then(res => {
+        let candidates = this.dataProvider.applyHaversine(res, location.lat, location.lng);
+        let newC = this.getCandidatesOnly(candidates);
+        this.candidates = this.dataProvider.sortByDistance(newC);
+        this.tmpCandiates = this.candidates;
+      })
+    });
     this.setFilteredUsers();
     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
         this.searching = false;
@@ -53,29 +63,14 @@ export class CandidatesPage {
     });
   }
 
-
-  init(){
-    this.dataProvider.loadUsers().then(users => {
-      this.candidates = users.filter(user => user.type == 'Employee');
-    }).catch(e => {
-      console.log(e);
-    });
+  setFilteredUsers() {
+    this.candidates = this.dataProvider.filterUsers(this.searchTerm);
   }
 
-  setFilteredUsers(){
-    let candidates = this.dataProvider.filterUsers(this.searchTerm);
-    if(candidates){
-      this.candidates = candidates.filter(user => user.type == 'Employee');
-      this.tmpCandiates = this.candidates;
-    }else{
-      this.dataProvider.loadUsers().then(res => {
-        this.candidates = res.filter(user => user.type == 'Employee');
-        this.tmpCandiates = this.candidates;
-      }).catch(err => {
-        console.log(err);
-      })
-    }
+  getCandidatesOnly(candidates): any{
+     return candidates.filter(user => user.type === 'Employee');
   }
+  
  
   applyEmployerFilter(){ 
     this.candidates = this.tmpCandiates;
@@ -96,19 +91,56 @@ export class CandidatesPage {
   userDetails(user){ 
     this.navCtrl.push(UserDetailsPage, {user: user, page: "Candidates"});
   }
+
+  postJob() {
+    let postModal = this.modalCtrl.create(PostJobsPage, { profile: this.profile });
+    postModal.onDidDismiss(data => {
+      if (data != null) { 
+        this.dataProvider.loadJobs().then(res => this.jobs = res);
+        this.dataProvider.presentToast("Job posted successfully");
+      }else{
+        this.dataProvider.presentToast("Oops something went wrong, try again later");
+      }
+    });
+    postModal.present();
+  }
  
   doRefresh(refresher) {
-    let users = this.dataProvider.refreshUsers();
-    this.candidates = users;
+    this.dataProvider.refreshUsers().then(res => {
+      const location = this.dataProvider.getLatLng();
+      const candidates = this.dataProvider.applyHaversine(res, location.lat, location.lng);
+      this.candidates = this.dataProvider.sortByDistance(candidates);
+    })
     refresher.complete();
   }
 
   onSearchInput(){
     this.searching = true;
   }
-
-  getLastSeen(user){
-    return moment(user.lastSeen.split(" ")[0], "MMDDYYYY").fromNow();  
-  }
   
+  filterCandidates(){
+    this.candidates = this.tmpCandiates;
+    let filter = this.modalCtrl.create(FilterCandidatesPage, { filter: this.filter });
+    filter.onDidDismiss(filter => {
+      if (filter != null) {
+        this.filter = filter;
+        localStorage.setItem('filter', JSON.stringify(filter));
+        this.candidates = this.applyFilter(filter);
+      }else{ 
+        this.dataProvider.loadUsers().then(users => {
+          this.candidates = users;
+        })
+      }
+    });
+    filter.present();
+  }
+
+  applyFilter(data){ 
+    let list: any;
+    list = this.candidates.filter(user => {
+      return user.distance <= data.distance && user.title === data.title
+    });
+    return list;
+  }
+
 }

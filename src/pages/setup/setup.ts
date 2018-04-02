@@ -4,7 +4,7 @@ import { DataProvider } from '../../providers/data/data';
 import { TermsPage } from '../terms/terms';
 import { CandidatesPage } from '../candidates/candidates';
 import { JobsPage } from '../jobs/jobs';
-import { User } from '../../interface/user';
+// import { User } from '../../interface/user';
 
 @IonicPage()
 @Component({

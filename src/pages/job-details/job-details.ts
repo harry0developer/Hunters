@@ -91,7 +91,7 @@ export class JobDetailsPage {
       this.dataProvider.dismissLoading();
       let results;
       results = res;
-      let arr = {};
+      // let arr = {};
       if(results && results.data){
         this.dataProvider.appliedJobs = null;
         this.ionEvent.publish("user:applied", results.data);
@@ -166,7 +166,7 @@ export class JobDetailsPage {
       date_viewed: this.dataProvider.getDate()
     }
     this.dataProvider.postData(data, "addToJobViews").then(res => {
-      let data =  res;
+      // let data =  res;
       this.viewedJobs = res;
       this.countJobViews(res);
       console.log(res);

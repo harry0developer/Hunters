@@ -8,12 +8,68 @@
   </ion-header>
 
 <ion-content>
-  <ion-grid>
+  
+  <ion-list class="category">
+    <ion-item-divider text-wrap color="light">
+      Max distance from your current location in Kilometers
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>
+        Distance: <ion-badge color="dark">{{settings.distance}}KM</ion-badge> 
+      </ion-label>
+      <ion-range min="0" max="500" step="5" pin="true" color="dark" [(ngModel)]="settings.distance">
+        <ion-label range-left>0 KM</ion-label>
+        <ion-label range-right>500+ KM </ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="category">
+    <ion-item-divider text-wrap color="light">
+      Choose the type of job you are looking for
+    </ion-item-divider>
+    <ion-item>
+      <ion-label floating>Job Type</ion-label>
+      <ion-select [(ngModel)]="settings.type">
+        <ion-option>Any</ion-option>
+        <ion-option>Full time</ion-option>
+        <ion-option>Part time</ion-option>
+        <ion-option>Once off</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="category">
+    <ion-item-divider text-wrap color="light">Find jobs matching this salary range in Rands</ion-item-divider>
+    <ion-item>
+      <ion-label>
+          Min: <ion-badge color="dark">R{{salary?.lower}}</ion-badge> 
+          Max: <ion-badge item-end color="dark">R{{salary?.upper}}</ion-badge>
+      </ion-label>
+      <ion-range dualKnobs="true" pin="true" step="100" min="100" max="9000" [(ngModel)]="salary" color="dark">
+        <ion-label range-left>R100</ion-label>
+        <ion-label range-right>R9000+</ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block color="dark" (click)="applyFilter()">Apply Filter</button> 
+  <button ion-button block outline color="dark" (click)="clearFilter()">Clear Filter</button> 
+
+  <!-- <ion-item *ngIf="settings.frequency">
+    <ion-label>Max Salary: {{settings.salary}}</ion-label>
+    <ion-range min="100" max="9000" step="100"  snaps="true" color="dark" [(ngModel)]="settings.salary">
+      <ion-label range-left>R100</ion-label>
+      <ion-label range-right>R9000+</ion-label>
+    </ion-range>
+  </ion-item> -->
+
+  <!-- <ion-grid>
     <ion-row>
       <ion-col col-6 *ngFor="let cat of categories" (click)="selectCategory(cat)">
         <img *ngIf="cat && cat.name" src="assets/categories/{{cat.name.toLowerCase()}}.svg">
         <h2 *ngIf="cat && cat.name">{{cat.name}}s</h2>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content> 

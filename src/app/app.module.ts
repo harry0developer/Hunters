@@ -14,7 +14,6 @@ import { LoginPage } from '../pages/login/login';
 import { MyJobsPage } from '../pages/my-jobs/my-jobs';
 import { OtpPage } from '../pages/otp/otp';
 import { PostJobsPage } from '../pages/post-jobs/post-jobs';
-import { SettingsPage } from '../pages/settings/settings';
 import { SignupPage } from '../pages/signup/signup';
 import { StatsPage } from '../pages/stats/stats';
 import { SetupPage } from '../pages/setup/setup';
@@ -22,6 +21,7 @@ import { TermsPage } from '../pages/terms/terms';
 import { UserDetailsPage } from '../pages/user-details/user-details';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { ProfilePage } from '../pages/profile/profile';
+import { FilterCandidatesPage } from '../pages/filter-candidates/filter-candidates';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +29,6 @@ import { DataProvider } from '../providers/data/data';
 import { HttpModule } from '@angular/http';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SocialSharing } from '@ionic-native/social-sharing';
-
 import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
@@ -50,10 +49,10 @@ import { Camera } from '@ionic-native/camera';
     PostJobsPage,
     AutocompletePage,
     JobDetailsPage,
-    SettingsPage,
     StatsPage,
     MyJobsPage,
     SetupPage,
+    FilterCandidatesPage,
     CandidatesPage,
     ProfilePage,
     JobsPage, 
@@ -79,10 +78,10 @@ import { Camera } from '@ionic-native/camera';
     PostJobsPage,
     AutocompletePage,
     JobDetailsPage,
-    SettingsPage,
     StatsPage,
     MyJobsPage,
     SetupPage,
+    FilterCandidatesPage,
     CandidatesPage,
     ProfilePage,
     JobsPage,

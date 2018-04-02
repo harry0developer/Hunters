@@ -16,4 +16,15 @@ page-filter {
     ion-grid img{
         width: 50px;
     }
+    ion-label.label{
+        margin: 20px 8px 11px 0 !important;
+    }
+    ion-range.range{
+        padding-top: 0 !important;
+    }
+
+    .category{
+        margin: 5px;
+        border: 1px solid #ddd;
+    }
 }

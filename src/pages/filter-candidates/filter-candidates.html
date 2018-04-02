@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="dark"> 
+    <ion-title>Filter</ion-title>
+    <ion-buttons end> 
+      <button ion-button (click)="cancel()"> Cancel </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list class="category">
+    <ion-item-divider text-wrap color="light">
+      Candidates within {{settings.distance}} KM
+    </ion-item-divider>
+    <ion-item> 
+      <ion-range min="0" max="500" step="5" pin="true" color="dark" [(ngModel)]="settings.distance">
+        <ion-label range-left>0 KM</ion-label>
+        <ion-label range-right>500+ KM </ion-label>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+  <ion-list class="category">
+    <ion-item-divider text-wrap color="light">
+        Select candidates category
+      </ion-item-divider>
+    <ion-item>
+      <ion-label floating>Category</ion-label>
+      <ion-select [(ngModel)]="settings.title" multiple="false">
+        <ion-option *ngFor="let category of categories; let i = index">{{category.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block color="dark" (click)="applyFilter()">Apply Filter</button>
+  <button ion-button block clear color="dark" (click)="clearFilter()">Clear Filter</button>
+</ion-content>

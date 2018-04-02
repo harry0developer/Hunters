@@ -1,9 +1,9 @@
 <ion-menu [content]="content"  persistent="true" >
   <ion-content class="con">
-    <div *ngIf="profile">
-      <img src="http://placehold.it/100x100" alt="" class="profile">
-      <h2>{{profile.firstname}}</h2>
-      <p>{{profile.lastname}}</p> 
+    <div *ngIf="profile" class="profile">
+      <img src="http://placehold.it/100x100" alt="profile picture">
+      <h2>{{profile.firstname}} {{profile.lastname}}</h2>
+      <!-- <p>{{profile.lastname}}</p>  -->
         <!-- <p>{{profile.type == 'Employee' ? "Candidate" : "Recruiter"}}</p>  -->
      <!-- <p>{{profile.lastSeen}} -->
     </div>
@@ -28,15 +28,7 @@
       <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages2.profilePage)">
         <ion-icon name="person" item-start></ion-icon>
           Profile
-      </ion-item>
-      <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages2.settingsPage)">
-        <ion-icon name="settings" item-start></ion-icon>
-          Settings
-      </ion-item>
-      <!-- <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages2.termsPage)">
-        <ion-icon name="information" item-start></ion-icon>
-          TS & CS
-      </ion-item>       -->
+      </ion-item> 
     </ion-list>
 
     <ion-grid class="extras"> 

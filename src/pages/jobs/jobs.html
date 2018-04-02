@@ -5,12 +5,9 @@
     </button>
     <ion-title>Jobs</ion-title>
     <ion-buttons end> 
-      <button ion-button icon-only   (click)="applyEmployeeFilter()">
-        <ion-icon name="funnel"></ion-icon>
-      </button> 
-      <button ion-button icon-only   (click)="postJob()">
-        <ion-icon name="more"></ion-icon>
-      </button> 
+      <button ion-button icon-only (click)="applyEmployeeFilter()">
+        <ion-icon name="settings"></ion-icon>
+      </button>  
     </ion-buttons> 
   </ion-navbar>
   <ion-toolbar color="dark">
@@ -23,6 +20,14 @@
 
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Refresh jobs"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <div class="job" *ngFor="let job of jobs">
     <ion-list *ngIf="job" (click)="jobDetails(job)">
       <ion-item>
@@ -41,15 +46,13 @@
       </ion-item>
     </ion-list> 
     <ion-list-header color="light">
-      <div item-start> 
-        <button clear color="dark" ion-button icon-left (click)="share(job)">
-          <ion-icon name="share"></ion-icon>
-          Share Job
-        </button>
-      </div>
-      <div item-end class="right">
+      <div item-start>
         <i class="fa fa-calendar" item-start></i>
         {{getMoment(job)}}
+      </div>
+      <div [hidden]="!job.distance" item-end>
+        <i class="fa fa-map-pin" item-start></i>
+        <!-- {{getDistance(job)}} --> {{job.distance}} KM away
       </div> 
     </ion-list-header>
   </div>

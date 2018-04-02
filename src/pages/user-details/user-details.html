@@ -1,14 +1,6 @@
 <ion-header>
   <ion-navbar color="dark"> 
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Profile</ion-title>
-    <ion-buttons [hidden]="page === 'Candidates'" end> 
-      <button ion-button icon-only (click)="editProfile()">
-        <ion-icon name="create"></ion-icon>
-      </button>  
-    </ion-buttons> 
+    <ion-title>User Profile</ion-title> 
   </ion-navbar>
 </ion-header>
 
@@ -19,10 +11,6 @@
     <p>{{user.title}}</p>  
   </div>
   <ion-list *ngIf="user" class="info" padding>
-    <ion-item text-wrap>
-      <i class="fa fa-user" item-start></i>
-      <p>{{user.firstname}} {{user.lastname}}</p>
-    </ion-item>
     <ion-item text-wrap>
       <i class="fa fa-calendar" item-start></i>
       <p>{{user.dob}}</p>
@@ -45,14 +33,11 @@
     </ion-item>
   </ion-list>
 
-  <div [hidden]="page === 'Employer'">
-    <div padding class="but" [hidden]="applied">
-      <button ion-button color="dark" block (click)="offerUserEmployment(user)">Offer Employement</button>
-    </div>
-    
-    <div padding class="but" [hidden]="!applied">
-      <button ion-button color="dark" block (click)="removeUserEmployment(user)">Withdraw Application</button>
-    </div>
+  <div padding class="but" [hidden]="applied">
+    <button ion-button color="dark" block (click)="offerUserEmployment(user)">Offer Employement</button>
+  </div>
+  <div padding class="but" [hidden]="!applied">
+    <button ion-button color="dark" block (click)="removeUserEmployment(user)">Withdraw Application</button>
   </div>
  
 </ion-content>

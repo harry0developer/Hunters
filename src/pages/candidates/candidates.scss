@@ -17,9 +17,13 @@ page-candidates {
         border: 2px solid $primary;
     }
     
-    ion-item.user{
-        margin: 10px 0 !important;
+    .main{
+        margin: 0 5px !important;
     } 
+
+    ion-item.user{
+        margin: 5px 0 !important;
+    }
  
     .spinner-container {
         width: 100%;
@@ -31,8 +35,13 @@ page-candidates {
     .item i{
         margin: 4px 2px !important
     }
-    .last-seen {
-        font-size: 0.6em;
+    
+    .distance {
+        font-size: 0.8em;
         float: right;
+        margin: 0 4px !important;
+        i{
+            color: $secondary;
+        }
     }
 }

@@ -1,27 +1,50 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>
-      Devdactic Image Upload
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-  
-<ion-content padding> 
-  <ion-item class="profile" tappable (click)="presentActionSheet()">
-    <img *ngIf="myProfile" [hidden]="lastImage !== null" src="{{uploads}}/users/{{myProfile.picture}}"/> 
-    <img  [hidden]="lastImage === null" src="{{pathForImage(lastImage)}}" >
-  </ion-item>
-</ion-content>
-  
-<ion-footer>
-  <ion-toolbar color="primary">
-    <ion-buttons>
-      <button ion-button icon-left (click)="presentActionSheet()">
-        <ion-icon name="camera"></ion-icon>Select Image
+    <ion-navbar color="dark"> 
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
       </button>
-      <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
-        <ion-icon name="cloud-upload"></ion-icon>Upload
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>
+      <ion-title>Profile</ion-title>
+      <ion-buttons end> 
+        <button ion-button icon-only (click)="editProfile()">
+          <ion-icon name="create"></ion-icon>
+        </button>  
+      </ion-buttons> 
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <div class="top" *ngIf="profile">
+      <img src="http://placehold.it/100x100" alt="">
+      <h2>{{profile.firstname}} {{profile.lastname}} </h2>
+      <p>{{profile.gender}}</p>  
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <i class="fa fa-flag" item-start></i>
+            <p>{{profile.nationality}}</p></ion-col>
+          <ion-col col-6>
+            <i class="fa fa-calendar" item-start></i>
+            <p>{{profile.dob}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+<!--       
+      <p>{{profile.dob}}</p>
+      <p>{{profile.nationality}}</p> -->
+    </div>
+    <ion-list *ngIf="profile" class="info" padding> 
+      <ion-item text-wrap>
+        <i class="fa fa-briefcase" item-start></i>
+        <p>{{profile.title}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <i class="fa fa-phone" item-start></i>
+        <p>{{profile.phone}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <i class="fa fa-map-marker" item-start></i>
+        <p>{{profile.address}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+      

@@ -26,7 +26,7 @@
     "@ionic-native/file": "^4.6.0",
     "@ionic-native/file-path": "^4.6.0",
     "@ionic-native/file-transfer": "^4.6.0",
-    "@ionic-native/geolocation": "^4.5.3",
+    "@ionic-native/geolocation": "^4.6.0",
     "@ionic-native/social-sharing": "^4.5.3",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
@@ -41,6 +41,7 @@
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-mauron85-background-geolocation": "^2.3.5",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-plugin-x-socialsharing": "^5.3.2",
@@ -62,7 +63,7 @@
     "plugins": {
       "cordova-plugin-x-socialsharing": {},
       "cordova-plugin-geolocation": {
-        "GEOLOCATION_USAGE_DESCRIPTION": "To locate jobs around you"
+        "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
       },
       "cordova-plugin-file": {},
       "cordova-plugin-file-transfer": {},

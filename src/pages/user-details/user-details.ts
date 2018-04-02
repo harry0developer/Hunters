@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataProvider } from '../../providers/data/data';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, ModalController } from 'ionic-angular';
+import { EditProfilePage } from '../edit-profile/edit-profile';
 
 @IonicPage()
 @Component({
@@ -17,19 +18,14 @@ export class UserDetailsPage {
   applied: boolean; 
   
   constructor(public navCtrl: NavController, public dataProvider: DataProvider,
-    public ionEvents: Events, public navParams: NavParams) {
+    public ionEvents: Events, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() { 
     this.page = this.navParams.get('page');
-    console.log(this.page);
     this.profile = JSON.parse(localStorage.getItem('user'));
-    if(this.page && this.page === "Candidates"){
-      this.user = this.navParams.get('user');
-    }else{
-      this.user = this.profile;
-      this.page = "Employer";
-    }
+    this.user = this.profile;
+    this.page = "Employer";
     this.hasBeenHired();
   }
  
@@ -100,9 +96,5 @@ export class UserDetailsPage {
       console.log(err);
     });
   }
-
-  editProfile(){
-    console.log("Edit profile");
-  }
-
+ 
 }

@@ -5,8 +5,11 @@
     </button>
     <ion-title>Candiates</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="applyEmployerFilter()">
-        <ion-icon name="more"></ion-icon>
+      <button ion-button icon-only (click)="filterCandidates()">
+        <ion-icon name="settings"></ion-icon>
+      </button> 
+      <button ion-button icon-only (click)="postJob()">
+        <ion-icon name="create"></ion-icon>
       </button> 
     </ion-buttons> 
   </ion-navbar>
@@ -20,7 +23,15 @@
 </ion-header>
 
 <ion-content> 
-  <ion-list padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Refresh users"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list class="main">
     <ion-item class="user" *ngFor="let user of candidates" (click)="userDetails(user)">
       <ion-avatar item-start>
         <img src="http://placehold.it/100x100">
@@ -29,15 +40,11 @@
       <p>
         <i class="fa fa-briefcase" item-start></i>
         {{user.title}}
-      </p>
-      <p>
-        <i class="fa fa-venus-mars" item-start></i>
-        {{user.gender}}
-        <span class="last-seen" item-end>{{getLastSeen(user)}}</span>
+        <span [hidden]="!user.distance" class="distance" item-end>
+          <i class="fa fa-map-pin" item-start></i>
+          {{user.distance}}KM Away
+        </span>
       </p> 
-      <!-- <div item-end class="last-seen"> 
-        {{getLastSeen(user)}}
-      </div>  -->
     </ion-item>
     <ion-item text-wrap *ngIf="!candidates || (candidates && candidates.length < 1)">
       <p>No candidates matching that category.</p> 
